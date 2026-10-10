@@ -1,80 +1,49 @@
-<section class="hero wrap">
-  <div class="hero-heading">
-    <p class="eyebrow">
-      <span class="live-dot"></span> HUAWEI STUDENT DEVELOPERS / İNÖNÜ
-    </p>
-    <h1>
-      Tek başına bir fikir.
-      <br />
-      Birlikte <em>daha fazlası.</em>
-    </h1>
-    <div class="hero-aside">
-      <p>
-        Merakla buluşan insanlar.
+<section class="campus-hero" aria-labelledby="hero-title">
+  <div class="campus-stage">
+    <div class="campus-heading">
+      <p class="eyebrow">HUAWEI STUDENT DEVELOPERS / İNÖNÜ</p>
+      <h1 id="hero-title">
+        Birlikte.
         <br />
-        Birlikte şekillenen gelecek.
+        Daha <em>ileri.</em>
+      </h1>
+      <p class="campus-description">
+        Bir kampüs dolusu merak.
+        <br />
+        Birlikte üreteceğimiz bir gelecek.
       </p>
-      <a href="/topluluk/">
-        Bizi keşfet <span>↗</span>
+      <a class="pill dark" href="/topluluk/">
+        Topluluğu keşfet ↗
       </a>
     </div>
-  </div>
-  <div class="sculpture" id="sculpture">
-    <div class="sculpture-fallback" aria-hidden="true">
-      <i></i>
-      <i></i>
-      <i></i>
+    <div
+      id="campus-scene"
+      role="img"
+      aria-label="Birlikte üretmeyi temsil eden üç boyutlu laptop, not defteri ve öğrenci kartı"
+    >
+      <div class="campus-fallback" aria-hidden="true">
+        <span>
+          hello,
+          <br />
+          <em>together.</em>
+        </span>
+        <i></i>
+      </div>
+      <canvas aria-hidden="true"></canvas>
     </div>
-    <div class="scene-label">
-      <span>HSD / CONNECTIONS</span>
-      <span>001 — BİRLİKTE ÜRET</span>
+    <div class="campus-second" aria-hidden="true">
+      <span>Bir fikirle başlar.</span>
+      <strong>Birlikte gerçeğe dönüşür.</strong>
     </div>
-    <canvas aria-hidden="true"></canvas>
-    <div class="scene-bottom">
-      <p>
-        Farklı parçalar.
-        <br />
-        Ortak bir enerji.
-      </p>
-      <button
-        class="scene-toggle"
-        aria-pressed="false"
-        aria-label="Sahne hareketini durdur"
-      >
-        Hareketi durdur Ⅱ
+    <div class="campus-bottom">
+      <a href="#kesfet">KEŞFETMEK İÇİN KAYDIR ↓</a>
+      <button class="campus-motion" aria-pressed="false">
+        Canlı hareketi durdur Ⅱ
       </button>
-      <span class="scene-coordinate">
-        İNÖNÜ ÜNİVERSİTESİ
-        <br />
-        MALATYA, TR
-      </span>
+      <span>İNÖNÜ ÜNİVERSİTESİ / MALATYA</span>
     </div>
-  </div>
-  <div class="hero-bottom">
-    <span>ÖĞREN. DENE. PAYLAŞ.</span>
-    <a href="#kesfet">
-      AŞAĞIDA DAHA FAZLASI VAR <span>↓</span>
-    </a>
-    <span>BAĞLANTI KUR, İZ BIRAK.</span>
+    <div class="campus-progress" aria-hidden="true">
+      <i></i>
+    </div>
   </div>
 </section>
-<script>
-  const host = document.querySelector('#sculpture');
-  if (host) {
-    const observer = new IntersectionObserver(
-      async (entries) => {
-        if (!entries.some((entry) => entry.isIntersecting)) return;
-        observer.disconnect();
-        try {
-          const { initSculpture } = await import('../scripts/sculpture');
-          initSculpture();
-        } catch {
-          const button = host.querySelector<HTMLButtonElement>('.scene-toggle');
-          if (button) button.hidden = true;
-        }
-      },
-      { rootMargin: '200px' },
-    );
-    observer.observe(host);
-  }
-</script>
