@@ -999,6 +999,7 @@
       font-size: 27px;
     }
     .join-link {
+      white-space: nowrap;
       padding: 10px 17px;
       gap: 14px;
       font-size: 11px;

@@ -102,7 +102,7 @@ export function initSculpture() {
       h = host.clientHeight;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
-    camera.position.z = w < 700 ? 17 : 12.5;
+    camera.position.z = w < 280 ? 21 : w < 700 ? 17 : 12.5;
     group.scale.setScalar(w < 700 ? 0.78 : 1);
     group.rotation.z = w < 700 ? -0.65 : -0.12;
     camera.updateProjectionMatrix();
