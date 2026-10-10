@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import FilterBar from '../components/FilterBar.astro';
+import { articles } from '../content/data';
+---
+
+<Base title="Yazılar">
+  <PageIntro
+    eyebrow="OKU / DÜŞÜN / PAYLAŞ"
+    title="Bir fikir daha."
+    text="Topluluğun merak ettikleri, araştırdıkları ve öğrendikleri. Yazılarımızı Medium hesabımızda keşfet."
+  />
+  <section class="wrap section-space" data-filter-root>
+    <FilterBar categories={['Yapay zekâ', 'Yazılım', 'Teknoloji']} />
+    <p class="caption">
+      Başlıklar konu tanıtımı olarak düzenlenmiştir; bağlantılar HSD İnönü
+      Medium hesabına gider.
+    </p>
+    <p class="sr-only" data-filter-status aria-live="polite"></p>
+    <div class="articles-grid">
+      {articles.map((article, i) => (
+        <a
+          class={`writing-card writing-${i}`}
+          data-category={article.category}
+          href={article.href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="writing-art" aria-hidden="true">
+            {article.glyph}
+            <span>HSD / NOTES</span>
+          </div>
+          <p class="eyebrow">{article.category}</p>
+          <h2>{article.title}</h2>
+          <p>{article.description}</p>
+          <span class="text-link">Medium'da keşfet ↗</span>
+        </a>
+      ))}
+    </div>
+    <p data-empty hidden>
+      Bu konuda henüz yazı yok.
+    </p>
+  </section>
+</Base>

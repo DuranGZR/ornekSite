@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+import { site } from '../config/site';
+---
+
+<Base title="Bize katıl">
+  <PageIntro
+    eyebrow="BİR SONRAKİ ADIM / SEN"
+    title="Merakını da al, gel."
+    text="Öğrenmek, denemek, katkıda bulunmak. Nereden başladığın kadar, nereye birlikte gidebileceğimiz önemli."
+  />
+  <section class="wrap section-space split-section">
+    <div class="join-panel">
+      <span class="join-symbol" aria-hidden="true">
+        ✳
+      </span>
+      <h2>
+        Birlikte
+        <br />
+        başlayalım.
+      </h2>
+      <p>
+        {site.applicationUrl
+          ? 'Başvuru için dış formumuza geçebilirsin.'
+          : 'Başvuru bağlantısı henüz eklenmedi. Katılım hakkında bilgi almak için Instagram üzerinden bize ulaşabilirsin.'}
+      </p>
+      <a
+        class="pill light"
+        href={site.applicationUrl ?? site.instagram}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {site.applicationUrl ? 'Başvuruya git' : 'Instagram’dan ulaş'} ↗
+      </a>
+    </div>
+    <div class="join-steps">
+      {[
+        [
+          '01',
+          'Tanışalım.',
+          'Topluluğu ve ilgi alanlarını keşfet. Sosyal hesaplarımızdan bizi takip et.',
+        ],
+        [
+          '02',
+          'Bir buluşmaya gel.',
+          'Etkinlik duyurularında katılım koşulları ve varsa kayıt bağlantısı paylaşılır.',
+        ],
+        [
+          '03',
+          'Kendi katkını bul.',
+          'Bir fikir getir, öğrendiğini paylaş ya da bir projede birlikte üret.',
+        ],
+      ].map(([n, title, text]) => (
+        <article>
+          <span class="eyebrow">{n}</span>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>

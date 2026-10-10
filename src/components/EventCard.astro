@@ -1,0 +1,27 @@
+---
+import { photo, type CommunityEvent } from '../content/data';
+import { eventDate } from '../utils/date';
+interface Props {
+  event: CommunityEvent;
+}
+const { event } = Astro.props;
+---
+
+<a class="event-card" href={`/etkinlikler/${event.slug}/`}>
+  <div class="card-image">
+    <img
+      src={photo(event.image, 900)}
+      alt="Temsili topluluk etkinliği"
+      loading="lazy"
+      width="900"
+      height="600"
+    />
+    <span class="image-tag">{event.category} · Demo</span>
+    <span class="image-arrow">↗</span>
+  </div>
+  <div class="card-meta">
+    <span>{eventDate(event.date)}</span>
+    <span>{event.category}</span>
+  </div>
+  <h3>{event.title}</h3>
+</a>

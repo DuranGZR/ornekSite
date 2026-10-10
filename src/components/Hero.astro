@@ -1,0 +1,80 @@
+<section class="hero wrap">
+  <div class="hero-heading">
+    <p class="eyebrow">
+      <span class="live-dot"></span> HUAWEI STUDENT DEVELOPERS / İNÖNÜ
+    </p>
+    <h1>
+      Tek başına bir fikir.
+      <br />
+      Birlikte <em>daha fazlası.</em>
+    </h1>
+    <div class="hero-aside">
+      <p>
+        Merakla buluşan insanlar.
+        <br />
+        Birlikte şekillenen gelecek.
+      </p>
+      <a href="/topluluk/">
+        Bizi keşfet <span>↗</span>
+      </a>
+    </div>
+  </div>
+  <div class="sculpture" id="sculpture">
+    <div class="sculpture-fallback" aria-hidden="true">
+      <i></i>
+      <i></i>
+      <i></i>
+    </div>
+    <div class="scene-label">
+      <span>HSD / CONNECTIONS</span>
+      <span>001 — BİRLİKTE ÜRET</span>
+    </div>
+    <canvas aria-hidden="true"></canvas>
+    <div class="scene-bottom">
+      <p>
+        Farklı parçalar.
+        <br />
+        Ortak bir enerji.
+      </p>
+      <button
+        class="scene-toggle"
+        aria-pressed="false"
+        aria-label="Sahne hareketini durdur"
+      >
+        Hareketi durdur Ⅱ
+      </button>
+      <span class="scene-coordinate">
+        İNÖNÜ ÜNİVERSİTESİ
+        <br />
+        MALATYA, TR
+      </span>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <span>ÖĞREN. DENE. PAYLAŞ.</span>
+    <a href="#kesfet">
+      AŞAĞIDA DAHA FAZLASI VAR <span>↓</span>
+    </a>
+    <span>BAĞLANTI KUR, İZ BIRAK.</span>
+  </div>
+</section>
+<script>
+  const host = document.querySelector('#sculpture');
+  if (host) {
+    const observer = new IntersectionObserver(
+      async (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        observer.disconnect();
+        try {
+          const { initSculpture } = await import('../scripts/sculpture');
+          initSculpture();
+        } catch {
+          const button = host.querySelector<HTMLButtonElement>('.scene-toggle');
+          if (button) button.hidden = true;
+        }
+      },
+      { rootMargin: '200px' },
+    );
+    observer.observe(host);
+  }
+</script>

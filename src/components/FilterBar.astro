@@ -1,0 +1,57 @@
+---
+interface Props {
+  categories: string[];
+}
+const { categories } = Astro.props;
+---
+
+<div class="filters" role="group" aria-label="Konuya göre filtrele">
+  {['Tümü', ...categories].map((category, i) => (
+    <button data-filter={category} aria-pressed={i === 0}>
+      {category}
+    </button>
+  ))}
+</div>
+<script>
+  document
+    .querySelectorAll<HTMLElement>('[data-filter-root]')
+    .forEach((root) => {
+      const buttons = root.querySelectorAll<HTMLButtonElement>('[data-filter]');
+      const items = root.querySelectorAll<HTMLElement>('[data-category]');
+      const status = root.querySelector<HTMLElement>('[data-filter-status]');
+      const empty = root.querySelector<HTMLElement>('[data-empty]');
+      const period = root.querySelector<HTMLSelectElement>('[data-period]');
+      let selected = 'Tümü';
+      function apply() {
+        let count = 0;
+        items.forEach((item) => {
+          const time = item.dataset.date
+            ? new Date(item.dataset.date).getTime()
+            : null;
+          const upcoming = time !== null && time >= Date.now();
+          const periodMatches =
+            !period ||
+            period.value === 'all' ||
+            (period.value === 'upcoming' ? upcoming : !upcoming);
+          const show =
+            (selected === 'Tümü' || item.dataset.category === selected) &&
+            periodMatches;
+          item.hidden = !show;
+          if (show) count++;
+        });
+        if (status) status.textContent = `${count} içerik gösteriliyor`;
+        if (empty) empty.hidden = count > 0;
+      }
+      buttons.forEach((button) =>
+        button.addEventListener('click', () => {
+          selected = button.dataset.filter ?? 'Tümü';
+          buttons.forEach((b) =>
+            b.setAttribute('aria-pressed', String(b === button)),
+          );
+          apply();
+        }),
+      );
+      period?.addEventListener('change', apply);
+      apply();
+    });
+</script>

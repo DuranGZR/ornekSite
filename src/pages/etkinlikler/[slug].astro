@@ -1,0 +1,61 @@
+---
+import Base from '../../layouts/Base.astro';
+import { events, photo } from '../../content/data';
+import { eventDate } from '../../utils/date';
+export function getStaticPaths() {
+  return events.map((event) => ({
+    params: { slug: event.slug },
+    props: { event },
+  }));
+}
+const { event } = Astro.props;
+---
+
+<Base title={event.title} description={event.description}>
+  <section class="wrap page-intro">
+    <a class="text-link back-link" href="/etkinlikler/">
+      ← Etkinliklere dön
+    </a>
+    <p class="eyebrow">{event.category} / DEMO ETKİNLİK</p>
+    <h1>{event.title}</h1>
+    <p class="lead">{event.description}</p>
+  </section>
+  <section class="wrap section-space">
+    <img
+      class="wide-photo"
+      src={photo(event.image, 1600)}
+      alt="Etkinlik için temsili fotoğraf"
+      width="1600"
+      height="900"
+    />
+    <div class="detail-grid">
+      <div>
+        <p class="eyebrow">BULUŞMANIN AKIŞI</p>
+        <h2>Program</h2>
+        <ol class="agenda">
+          {event.agenda.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ol>
+        {event.speakers.length > 0 && (
+          <>
+            <h3>Konuşmacılar</h3>
+            <p>{event.speakers.join(', ')}</p>
+          </>
+        )}
+      </div>
+      <aside class="detail-aside">
+        <p class="eyebrow">NE ZAMAN / NEREDE</p>
+        <h3>{eventDate(event.date)}</h3>
+        <p>{event.location}</p>
+        <hr />
+        <p>
+          Bu bir örnek etkinliktir. Gerçek kayıt bağlantısı henüz eklenmedi.
+        </p>
+        <a class="pill dark" href="/katil/">
+          İletişim yolları ↗
+        </a>
+      </aside>
+    </div>
+  </section>
+</Base>

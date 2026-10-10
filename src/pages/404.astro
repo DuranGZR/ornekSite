@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import PageIntro from '../components/PageIntro.astro';
+---
+
+<Base title="Sayfa bulunamadı">
+  <PageIntro
+    eyebrow="404 / KÜÇÜK BİR SAPMA"
+    title="Burada bir şey yok."
+    text="Aradığın sayfa taşınmış olabilir. Ana sayfadan yeniden keşfetmeye başlayabilirsin."
+  />
+  <div class="wrap section-space">
+    <a class="pill dark" href="/">
+      Ana sayfaya dön ↗
+    </a>
+  </div>
+</Base>
