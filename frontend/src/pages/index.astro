@@ -1,0 +1,179 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import { events, articles } from '../content/data';
+import ShowcaseEvent from '../components/home/ShowcaseEvent.astro';
+import PublicationGrid from '../components/PublicationGrid.astro';
+import CommunityPhoto from '../components/CommunityPhoto.astro';
+import '../styles/home.css';
+import '../styles/hero.css';
+const now = Date.now();
+const upcomingEvents = events.filter(
+  (event) =>
+    event.status === 'upcoming' &&
+    event.date &&
+    new Date(event.date).getTime() >= now,
+);
+const pastEvents = events.filter(
+  (event) =>
+    event.status === 'completed' ||
+    (event.date && new Date(event.date).getTime() < now),
+);
+const words =
+  'Aynı kampüste, farklı hayallerle. Birbirimizden öğreniyor, birlikte deniyor, birlikte üretiyoruz.'.split(
+    ' ',
+  );
+---
+
+<Base>
+  <Hero announcement={upcomingEvents[0]} />
+  <section class="community-story" id="kesfet">
+    <div class="wrap">
+      <h2 class="story-title">
+        <span>Bir merak.</span>
+        <span>Bin olasılık.</span>
+      </h2>
+      <div class="story-description">
+        <span class="story-star" aria-hidden="true">
+          ✳
+        </span>
+        <div>
+          <p aria-label={words.join(' ')}>
+            {words.map((word) => (
+              <span aria-hidden="true">{word} </span>
+            ))}
+          </p>
+          <a class="text-link" href="/topluluk/">
+            HSD İnönü’yü tanı ↗
+          </a>
+        </div>
+      </div>
+    </div>
+    <a class="community-frame" href="/ekip/">
+      <CommunityPhoto
+        imageSlot="home"
+        photo="community"
+        alt="HSD İnönü topluluk buluşmasında çekilen grup fotoğrafı"
+        loading="lazy"
+      />
+      <div>
+        <h3>
+          İyi ki
+          <br />
+          bir aradayız.
+        </h3>
+        <span class="pill light">Ekiple tanış ↗</span>
+      </div>
+      <small>HSD İnönü / Topluluk buluşması</small>
+    </a>
+  </section>
+  <section
+    class="event-showcase wrap"
+    id="etkinlikler"
+    aria-labelledby="home-events-title"
+  >
+    <div class="section-heading" data-rise>
+      <div>
+        <h2 id="home-events-title">
+          Takvimden taşan
+          <br />
+          <em>deneyimler.</em>
+        </h2>
+      </div>
+      <a class="pill outline" href="/etkinlikler/">
+        Tüm etkinlikler ↗
+      </a>
+    </div>
+    {upcomingEvents.length > 0 ? (
+      <div
+        class="event-stack"
+        tabindex="0"
+        role="region"
+        aria-label="Yaklaşan etkinlikler"
+      >
+        {upcomingEvents.map((event, i) => (
+          <ShowcaseEvent event={event} featured={i === 0} />
+        ))}
+      </div>
+    ) : null}
+    {pastEvents.length > 0 && (
+      <div
+        class="event-stack"
+        tabindex="0"
+        role="region"
+        aria-label="Geçmiş etkinlikler"
+      >
+        {pastEvents.slice(0, 3).map((event) => (
+          <ShowcaseEvent event={event} />
+        ))}
+      </div>
+    )}
+  </section>
+  <section class="home-writing wrap">
+    <div class="section-heading" data-rise>
+      <div>
+        <p class="eyebrow">MEDIUM YAZILARIMIZ</p>
+        <h2>
+          Paylaştıkça <em>çoğalır.</em>
+        </h2>
+      </div>
+      <a class="text-link" href="/yazilar/">
+        Bütün yazılar ↗
+      </a>
+    </div>
+    <PublicationGrid
+      articles={[...articles]
+        .sort((a, b) => b.published.localeCompare(a.published))
+        .slice(0, 3)}
+      compact
+    />
+  </section>
+  <section class="join-journey">
+    <div class="journey-stage">
+      <div class="journey-door" aria-hidden="true">
+        <div class="journey-card-face">
+          <div class="journey-card-top">
+            <span>KAMPÜS TOPLULUĞU</span>
+            <span class="journey-card-dot"></span>
+          </div>
+          <div class="journey-card-identity">
+            <img
+              src="/hsd-logo.svg"
+              width="480"
+              height="180"
+              alt=""
+              loading="lazy"
+            />
+            <span class="journey-card-rule"></span>
+            <p>
+              İnönü
+              <br />
+              <span>Üniversitesi</span>
+            </p>
+          </div>
+          <div class="journey-card-bottom">
+            <span>
+              ÖĞREN.
+              <br />
+              ÜRET. PAYLAŞ.
+            </span>
+            <span class="journey-card-arrow">↗</span>
+          </div>
+        </div>
+      </div>
+      <div class="journey-copy">
+        <h2>Birlikte daha ileri.</h2>
+        <p class="journey-description">Öğrenmek ve üretmek için bize katıl.</p>
+        <div class="journey-actions">
+          <a class="journey-join" href="/katil/">
+            Topluluğa katıl <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+<script>
+  import { initHomeMotion } from '../scripts/home-motion';
+  initHomeMotion();
+</script>

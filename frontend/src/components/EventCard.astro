@@ -1,0 +1,33 @@
+---
+import { type CommunityEvent } from '../content/data';
+import { eventDate, eventTime } from '../utils/date';
+interface Props {
+  event: CommunityEvent;
+}
+const { event } = Astro.props;
+---
+
+<a class="event-card" href={`/etkinlikler/${event.slug}/`}>
+  <div class="card-image">
+    <img
+      src={event.image}
+      alt={event.imageAlt}
+      loading="lazy"
+      width={event.imageWidth}
+      height={event.imageHeight}
+    />
+    <span class="image-tag">{event.category}</span>
+    <span class="image-arrow">↗</span>
+  </div>
+  <div class="card-meta">
+    <span>
+      {event.date ? eventDate(event.date) : 'Tamamlandı'}
+      {eventTime(event.date) && ` · ${eventTime(event.date)}`}
+    </span>
+    <span>{event.location}</span>
+  </div>
+  <h3>{event.title}</h3>
+  <span class="card-action">
+    Etkinliği incele <span aria-hidden="true">↗</span>
+  </span>
+</a>

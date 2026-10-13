@@ -1,0 +1,881 @@
+/* Compact mobile layouts retain every paragraph, image, and action. */
+@media (max-width: 700px) {
+  :root {
+    --gutter: 18px;
+  }
+  body .header {
+    height: 68px;
+  }
+  body .interior {
+    padding-bottom: 40px;
+  }
+  body .page-intro,
+  body .interior .page-intro {
+    padding-top: 28px;
+    padding-bottom: 24px;
+  }
+  body .page-intro h1,
+  body .story-opening h1 {
+    font-size: clamp(30px, 8.5vw, 38px);
+    line-height: 1.12;
+  }
+  body .interior .lead,
+  body .page-intro .lead {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-top: 16px;
+  }
+  body .interior-section {
+    margin-top: 32px;
+  }
+  body .section-space {
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+  body .section-heading {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  body .section-heading h2 {
+    font-size: 32px;
+    white-space: normal;
+  }
+  body .text-link {
+    font-size: 13px;
+    min-height: 44px;
+  }
+  body .story-opening {
+    padding-top: 28px;
+    gap: 18px;
+  }
+  body .opening-photo {
+    margin: 0;
+  }
+  body .opening-photo img {
+    width: 100%;
+    height: 150px;
+    object-fit: contain;
+    background: #e3e4e1;
+    border-radius: 12px;
+  }
+  body .opening-photo figcaption {
+    margin-top: 6px;
+    font-size: 10px;
+  }
+  body .story-opening .text-link {
+    margin-top: 10px;
+  }
+
+  /* Spacious mobile openings without stretching the gaps to fill the viewport. */
+  body .campus-hero {
+    height: auto;
+    min-height: 0;
+  }
+  body .campus-stage {
+    min-height: 0;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 36px;
+    padding: 100px var(--gutter) 24px;
+  }
+  body .campus-heading h1 {
+    font-size: clamp(34px, 10vw, 44px);
+    margin: 24px 0 20px;
+  }
+  body .campus-description {
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  body .campus-actions {
+    margin-top: 16px;
+    gap: 10px 16px;
+  }
+  body .hero-blueprint {
+    width: min(74vw, 300px, 34svh);
+    flex-shrink: 0;
+    margin: 0 auto;
+  }
+  body .community-story {
+    padding-top: 0;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  body .community-story > .wrap {
+    flex: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-block: 28px 20px;
+  }
+  body .story-title {
+    font-size: clamp(40px, 11.5vw, 52px);
+    margin: 0 0 28px;
+  }
+  body .story-description {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 14px;
+    padding: 0;
+  }
+  body .story-star {
+    font-size: 38px;
+  }
+  body .story-description p {
+    font-size: 19px;
+    line-height: 1.4;
+    margin-bottom: 12px;
+  }
+  body .community-frame {
+    height: min(38svh, 360px);
+    min-height: 0;
+    flex-shrink: 0;
+  }
+  body .community-frame h3 {
+    font-size: 36px;
+    margin: 12px 0;
+  }
+  body .community-frame small {
+    font-size: 9px;
+    right: 16px;
+    bottom: 14px;
+  }
+  body .event-showcase {
+    padding-top: 64px;
+    padding-bottom: 36px;
+  }
+  body .event-showcase .section-heading {
+    margin-bottom: 18px;
+  }
+  body .event-showcase .section-heading > a {
+    margin-top: 14px;
+  }
+  body .event-stack {
+    display: grid;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(84vw, 360px);
+    gap: 14px;
+    width: calc(100% + 2 * var(--gutter));
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 4px var(--gutter) 16px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: var(--gutter);
+    scrollbar-width: thin;
+    scrollbar-color: var(--wine) transparent;
+  }
+  body .poster-panel {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    height: auto;
+    scroll-snap-align: start;
+    overflow: hidden;
+    border-radius: 16px;
+  }
+  body .poster-panel .poster-media {
+    height: 190px;
+    flex: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+  }
+  body .poster-panel img {
+    position: static;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    object-fit: contain;
+  }
+  body .poster-panel .showcase-bottom {
+    padding: 18px;
+    flex: 1;
+    align-items: stretch;
+  }
+  body .poster-panel .showcase-copy {
+    display: flex;
+    flex-direction: column;
+  }
+  body .poster-panel .showcase-bottom h3 {
+    font-size: 21px;
+    line-height: 1.18;
+  }
+  body .poster-panel .poster-category {
+    margin-bottom: 10px;
+    font-size: 9px;
+  }
+  body .poster-description {
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  body .poster-panel .showcase-details {
+    margin-top: 12px;
+    font-size: 11px;
+    gap: 4px;
+  }
+  body .poster-panel .showcase-link {
+    padding: 10px 16px;
+    margin-top: 16px;
+    font-size: 12px;
+    min-height: 44px;
+    align-self: flex-start;
+  }
+  body .poster-panel .showcase-details {
+    flex: 1;
+    justify-content: end;
+  }
+  body .home-writing {
+    padding-top: 16px;
+    padding-bottom: 40px;
+  }
+  body .home-writing .section-heading {
+    margin-bottom: 20px;
+  }
+  body .home-writing .section-heading h2 {
+    font-size: 34px;
+  }
+  body .home-writing .section-heading > a {
+    margin-top: 10px;
+  }
+  body .join-journey,
+  body .journey-stage {
+    height: auto;
+    min-height: 280px;
+  }
+  body .journey-copy {
+    padding: 36px var(--gutter);
+  }
+  body .journey-copy h2 {
+    font-size: 34px;
+  }
+  body .journey-description {
+    font-size: 14px;
+  }
+
+  /* Community and gallery. */
+  body .community-page .community-purpose {
+    display: block;
+    padding-top: 24px;
+  }
+  body .community-page .purpose-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+    padding: 4px;
+    margin-bottom: 24px;
+    background: #e1e2de;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+  }
+  body .community-page .purpose-tabs button {
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--muted);
+    min-height: 44px;
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  body .community-page .purpose-tabs button[aria-selected='true'] {
+    background: var(--wine);
+    color: white;
+  }
+  body .community-page .purpose-tabs button:focus-visible {
+    outline: 2px solid var(--wine);
+    outline-offset: 3px;
+  }
+  body .community-page .community-purpose.is-tabbed .purpose-label {
+    display: none;
+  }
+  body .community-page .purpose-block {
+    margin-bottom: 24px;
+  }
+  body .community-page .purpose-block[role='tabpanel'] {
+    margin-bottom: 0;
+  }
+  body .community-page .community-purpose .purpose-block + .purpose-block {
+    padding-top: 0;
+    border-top: 0;
+  }
+  body .community-page .purpose-label {
+    margin-bottom: 12px;
+    font-size: 13px;
+  }
+  body .community-page .purpose-block h2 {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+  body .community-page .purpose-block h2 em {
+    display: inline;
+  }
+  body .community-page .purpose-description {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  body .community-page .community-values {
+    padding-top: 24px;
+  }
+  body .community-page .community-values h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  body .community-page .values-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  body .community-page .values-grid article {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    padding: 18px 0;
+    border-top: 1px solid var(--line);
+  }
+  body .community-page .values-grid h3 {
+    font-size: 20px;
+    margin: 0;
+    line-height: 1.4;
+  }
+  body .community-page .values-grid p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  body .community-page .community-film {
+    padding-top: 24px;
+  }
+  body .community-page .film-heading h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  body .community-page .film-reels {
+    gap: 12px;
+    padding: 6px 0;
+  }
+  body .community-page .film-image {
+    height: 105px;
+  }
+  body .community-page .film-frame {
+    width: calc(var(--frame-width) * 0.58);
+  }
+
+  /* Archive: compact horizontal entries with uncropped posters. */
+  body .archive-content .filter-toolbar {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  body .archive-filter select {
+    min-width: 0;
+    width: 100%;
+    font-size: 12px;
+  }
+  body .archive-content .event-grid {
+    gap: 22px;
+  }
+  body .archive-content .event-card {
+    display: grid;
+    grid-template-columns: 108px minmax(0, 1fr);
+    column-gap: 16px;
+    align-items: start;
+  }
+  body .archive-content .card-image {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    width: 108px;
+    aspect-ratio: 3/4;
+  }
+  body .archive-content .card-image img {
+    object-fit: contain;
+  }
+  body .archive-content .image-tag {
+    font-size: 8px;
+    padding: 5px 6px;
+    top: 6px;
+    left: 6px;
+  }
+  body .archive-content .image-arrow {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    right: 6px;
+    bottom: 6px;
+  }
+  body .archive-content .card-meta {
+    grid-column: 2;
+    margin-top: 0;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 10px;
+  }
+  body .archive-content .card-meta > span:last-child {
+    max-width: none;
+    text-align: left;
+  }
+  body .archive-content .event-card h3 {
+    grid-column: 2;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  body .archive-content .card-action {
+    grid-column: 2;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  body .archive-summary {
+    margin-top: 10px;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  /* All event detail routes share this compact layout. */
+  body .detail-intro .back-link {
+    margin-bottom: 12px;
+  }
+  body .detail-intro h1 {
+    font-size: 30px;
+    margin-top: 14px;
+    line-height: 1.14;
+  }
+  body .detail-intro .lead {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  body .detail-story {
+    gap: 18px;
+  }
+  body .detail-story .event-detail-photo {
+    max-height: 230px;
+    width: 100%;
+    object-fit: contain;
+  }
+  body .detail-aside {
+    padding: 18px;
+  }
+  body .detail-aside .event-state {
+    margin-top: 12px;
+    font-size: 14px;
+  }
+  body .detail-story .detail-aside h2 {
+    font-size: 24px;
+    margin-top: 12px;
+  }
+  body .detail-aside p {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  body .detail-aside hr {
+    margin: 16px 0;
+  }
+  body .detail-grid {
+    margin-top: 28px;
+    gap: 20px;
+  }
+  body .detail-grid h2,
+  body .project-details h2,
+  body .related-events h2 {
+    font-size: 26px;
+  }
+  body .agenda {
+    margin-top: 16px;
+    padding-left: 22px;
+  }
+  body .agenda li {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 10px;
+    padding: 12px 0 12px 4px;
+  }
+  body .project-details {
+    margin-top: 28px;
+    gap: 18px;
+  }
+  body .project-details li {
+    font-size: 14px;
+  }
+  body .project-details img {
+    max-height: 160px;
+    object-fit: contain;
+  }
+  body .related-events {
+    margin-top: 28px;
+    padding-top: 20px;
+  }
+  body .related-events > div {
+    gap: 12px;
+  }
+  body .related-events a {
+    padding: 16px;
+    font-size: 16px;
+  }
+
+  /* People: preserve names, roles, portraits and committee descriptions. */
+  body .core-heading {
+    padding-bottom: 18px;
+    margin-bottom: 20px;
+    gap: 8px;
+  }
+  body .core-heading h2 {
+    font-size: 28px;
+  }
+  body .core-member-prominent {
+    padding: 16px 12px;
+    border-radius: 12px;
+  }
+  body .core-president {
+    max-width: none;
+  }
+  body .core-president .core-member {
+    display: grid;
+    grid-template-columns: 64px minmax(0, 1fr);
+    text-align: left;
+    gap: 4px 16px;
+  }
+  body .core-president .core-portrait {
+    grid-row: 1 / span 2;
+    width: 64px;
+  }
+  body .core-president h3 {
+    font-size: 19px;
+    margin-top: 4px;
+    align-self: end;
+  }
+  body .core-president p {
+    margin-top: 0;
+    font-size: 12px;
+  }
+  body .core-deputies {
+    gap: 12px;
+    margin-top: 28px;
+  }
+  body .core-deputies:before {
+    top: -28px;
+    height: 14px;
+  }
+  body .core-deputies:after {
+    top: -14px;
+    height: 14px;
+  }
+  body .core-deputies .core-portrait {
+    width: 48px;
+    font-size: 20px;
+  }
+  body .core-deputies h3 {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  body .core-deputies p {
+    font-size: 11px;
+    margin-top: 4px;
+  }
+  body .core-committees {
+    margin-top: 32px;
+    gap: 20px;
+  }
+  body .core-committees:after {
+    height: 32px;
+    top: -32px;
+  }
+  body .core-committee {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+  body .core-committee:before {
+    height: 20px;
+    top: -21px;
+  }
+  body .committee-heading {
+    padding-bottom: 16px;
+  }
+  body .committee-heading h2 {
+    font-size: 24px;
+  }
+  body .committee-heading h2 span {
+    font-size: 12px;
+    margin-top: 4px;
+  }
+  body .committee-heading p {
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+  body .committee-members {
+    margin-top: 18px;
+    gap: 18px 12px;
+  }
+  body .committee-members .core-portrait {
+    width: 40px;
+    font-size: 18px;
+    grid-row: 1 / span 2;
+  }
+  body .committee-members .core-member {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 3px 8px;
+    text-align: left;
+    align-items: center;
+  }
+  body .committee-members h3 {
+    font-size: 14px;
+    margin-top: 0;
+    grid-column: 2;
+  }
+  body .committee-members p {
+    font-size: 11px;
+    margin-top: 0;
+    grid-column: 2;
+  }
+
+  /* Writing and recruitment. */
+  body :is(.journal-page, .home-writing) .journal-heading {
+    padding: 28px 0 24px;
+  }
+  body :is(.journal-page, .home-writing) .journal-topline {
+    margin-bottom: 18px;
+  }
+  body :is(.journal-page, .home-writing) .journal-heading h1 {
+    font-size: 36px;
+  }
+  body :is(.journal-page, .home-writing) .journal-subline {
+    margin-top: 16px;
+    font-size: 14px;
+  }
+  body :is(.journal-page, .home-writing) .journal-grid {
+    padding-top: 18px;
+  }
+  body :is(.journal-page, .home-writing) .journal-issue {
+    font-size: 22px;
+    line-height: 1;
+    left: 8px;
+    bottom: 8px;
+  }
+  body :is(.journal-page, .home-writing) .journal-featured .journal-issue {
+    font-size: 28px;
+    left: 12px;
+    bottom: 12px;
+  }
+  body :is(.journal-page, .home-writing) .journal-featured .journal-cover {
+    max-height: 180px;
+  }
+  body :is(.journal-page, .home-writing) .journal-featured .journal-copy {
+    padding-top: 16px;
+  }
+  body :is(.journal-page, .home-writing) .journal-featured .journal-copy h2,
+  body :is(.journal-page, .home-writing) .journal-featured .journal-copy h3 {
+    font-size: 26px;
+  }
+  body
+    :is(.journal-page, .home-writing)
+    .journal-article:not(.journal-featured) {
+    padding: 18px 0;
+    grid-template-columns: 90px minmax(0, 1fr);
+    gap: 14px;
+    margin-top: 0;
+  }
+  body :is(.journal-page, .home-writing) .journal-copy h2,
+  body :is(.journal-page, .home-writing) .journal-copy h3 {
+    font-size: 18px;
+  }
+  body :is(.journal-page, .home-writing) .journal-description {
+    margin-top: 12px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  body :is(.journal-page, .home-writing) .journal-bottom {
+    margin-top: 12px;
+  }
+  body :is(.journal-page, .home-writing) .journal-end {
+    margin: 28px 0 40px;
+    padding-top: 18px;
+    gap: 12px;
+  }
+  body .join-page .recruit-hero {
+    padding: 28px 0 36px;
+    gap: 28px;
+  }
+  body .join-page .recruit-copy h1 {
+    font-size: 40px;
+    margin: 18px 0;
+  }
+  body .join-page .recruit-intro {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  body .join-page .recruit-actions {
+    gap: 12px;
+    margin-top: 20px;
+  }
+  body .join-page .recruit-actions .pill,
+  body .join-page .recruit-final .pill {
+    padding: 12px 20px;
+  }
+  body .join-page .recruit-note {
+    margin-top: 12px;
+  }
+  body .join-page .recruit-visual {
+    padding: 0 0 34px 16px;
+  }
+  body .join-page .recruit-main-photo picture {
+    aspect-ratio: 1.8;
+  }
+  body .join-page .recruit-small-photo {
+    width: 34%;
+  }
+  body .join-page .recruit-stamp {
+    width: 70px;
+    height: 70px;
+    padding: 10px 6px;
+    gap: 3px;
+    flex-shrink: 0;
+  }
+  body .join-page .recruit-visual .recruit-stamp span {
+    font-size: 7px;
+    line-height: 1.2;
+    letter-spacing: 0.06em;
+    white-space: nowrap;
+  }
+  body .join-page .recruit-visual .recruit-stamp strong {
+    font-size: 24px;
+    line-height: 1;
+  }
+  body .join-page .recruit-benefits {
+    padding: 24px 0 32px;
+  }
+  body .join-page .recruit-benefits-heading {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  body .join-page .recruit-benefits-heading h2 {
+    font-size: 28px;
+    max-width: none;
+  }
+  body .join-page .recruit-benefit-grid {
+    gap: 20px;
+  }
+  body .join-page .recruit-benefit {
+    padding-top: 16px;
+  }
+  body .join-page .recruit-benefit h3 {
+    font-size: 23px;
+    margin: 10px 0;
+  }
+  body .join-page .recruit-benefit p {
+    line-height: 1.65;
+    max-width: none;
+  }
+  body .join-page .recruit-benefit-link {
+    padding-top: 10px;
+    min-height: 44px;
+  }
+  body .join-page .recruit-core {
+    padding: 24px;
+    gap: 20px;
+  }
+  body .join-page .recruit-core h2 {
+    font-size: 29px;
+    margin: 16px 0;
+  }
+  body .join-page .join-answers {
+    margin-top: 32px;
+    gap: 18px;
+  }
+  body .join-page .join-answers h2 {
+    font-size: 28px;
+  }
+  body .join-page .join-answers .faq summary {
+    font-size: 14px;
+    padding-block: 16px;
+  }
+  body .join-page .join-answers .faq p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  body .join-page .recruit-final {
+    margin-top: 28px;
+    padding-top: 24px;
+    gap: 18px;
+  }
+  body .join-page .recruit-final p {
+    font-size: 30px;
+  }
+
+  body .footer {
+    padding-top: 28px;
+  }
+  body .footer-grid {
+    gap: 20px;
+    padding-bottom: 20px;
+  }
+  body .footer-identity p {
+    margin-top: 12px;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  body .footer-links h2 {
+    margin-bottom: 8px;
+    font-size: 13px;
+  }
+  body .footer-links a {
+    min-height: 44px;
+    padding-block: 10px;
+    font-size: 13px;
+  }
+  body .footer-meta {
+    padding-top: 16px;
+    padding-bottom: 28px;
+    font-size: 11px;
+  }
+  body #main .lost-page {
+    gap: 24px;
+    padding-block: 28px 36px;
+    min-height: 0;
+  }
+  body #main .lost-art {
+    max-width: 190px;
+    margin-inline: auto;
+  }
+  body #main .lost-four {
+    font-size: 100px;
+  }
+  body #main .lost-zero {
+    width: 70px;
+  }
+  body #main .lost-copy h1 {
+    font-size: 30px;
+  }
+  body #main .lost-description {
+    font-size: 14px;
+  }
+}
+@media (max-width: 700px) and (max-height: 650px) {
+  body .campus-stage {
+    padding-top: 84px;
+    padding-bottom: 20px;
+    gap: 16px;
+  }
+  body .campus-heading h1 {
+    font-size: 32px;
+    margin: 16px 0 14px;
+  }
+  body .campus-description {
+    font-size: 14px;
+  }
+  body .hero-blueprint {
+    width: min(65vw, 25svh);
+  }
+}
+@media (max-width: 359px) {
+  body .archive-content .event-card {
+    grid-template-columns: 90px minmax(0, 1fr);
+    gap: 12px;
+  }
+  body .archive-content .card-image {
+    width: 90px;
+  }
+}

@@ -1,0 +1,245 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Sayfa bulunamadı"
+  description="Bu sayfa bulunamadı. HSD İnönü ana sayfasına dön veya topluluğun etkinliklerini keşfet."
+  noindex
+>
+  <section class="lost-page wrap" aria-labelledby="lost-title">
+    <div class="lost-art" aria-hidden="true">
+      <span class="lost-four">4</span>
+      <div class="lost-zero">
+        <svg viewBox="0 0 240 360" fill="none">
+          <path
+            class="zero-upper"
+            d="M 50 174 V 114 C 50 47 190 47 190 114 V 145"
+          />
+          <path
+            class="zero-lower"
+            d="M 190 190 V 248 C 190 315 50 315 50 248 V 221"
+          />
+          <path
+            class="lost-detour"
+            d="M 190 145 V 168 H 218 V 198 H 22 V 221 H 50"
+          />
+          <circle class="lost-point" cx="218" cy="168" r="7" />
+        </svg>
+      </div>
+      <span class="lost-four">4</span>
+    </div>
+    <div class="lost-copy">
+      <p class="lost-label">
+        <span></span> Sayfa bulunamadı
+      </p>
+      <h1 id="lost-title">
+        Küçük bir sapma.
+        <br />
+        <em>Yeni bir başlangıç.</em>
+      </h1>
+      <p class="lost-description">
+        Aradığın sayfa taşınmış ya da kaldırılmış olabilir. Birlikte keşfedecek
+        daha çok şeyimiz var.
+      </p>
+      <div class="lost-actions">
+        <a class="lost-home" href="/">
+          Ana sayfaya dön <span aria-hidden="true">↗</span>
+        </a>
+        <a class="lost-events" href="/etkinlikler/">
+          Etkinlikleri keşfet <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .lost-page {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    align-items: center;
+    gap: clamp(40px, 6vw, 100px);
+    min-height: calc(100svh - 84px);
+    padding-block: 72px 100px;
+  }
+  .lost-art {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    user-select: none;
+  }
+  .lost-four {
+    font-size: clamp(180px, 21vw, 330px);
+    line-height: 1;
+    letter-spacing: -0.095em;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .lost-four:last-child {
+    padding-right: 0.06em;
+  }
+  .lost-zero {
+    width: clamp(140px, 14vw, 220px);
+    flex-shrink: 0;
+    margin-inline: -8px -2px;
+  }
+  .lost-zero svg {
+    display: block;
+    width: 100%;
+    overflow: visible;
+  }
+  .zero-upper,
+  .zero-lower {
+    stroke: var(--wine);
+    stroke-width: 37;
+  }
+  .zero-lower {
+    transform: translate(-5px, 5px);
+  }
+  .lost-detour {
+    stroke: var(--wine);
+    stroke-width: 1.5;
+    stroke-dasharray: 4 5;
+  }
+  .lost-point {
+    fill: var(--wine);
+    stroke: var(--paper);
+    stroke-width: 3;
+  }
+  .lost-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 28px;
+    font-size: 14px;
+    color: var(--wine);
+  }
+  .lost-label span {
+    width: 7px;
+    height: 7px;
+    background: currentColor;
+    border-radius: 50%;
+  }
+  .lost-copy h1 {
+    margin: 0;
+    font-size: clamp(36px, 3.8vw, 60px);
+    font-weight: 500;
+    line-height: 1.12;
+    letter-spacing: -0.055em;
+  }
+  .lost-copy h1 em {
+    font-style: normal;
+    color: var(--wine);
+  }
+  .lost-description {
+    max-width: 38ch;
+    margin: 28px 0 34px;
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+  .lost-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 22px 28px;
+  }
+  .lost-home {
+    display: inline-flex;
+    gap: 24px;
+    align-items: center;
+    padding: 8px 8px 8px 22px;
+    min-height: 52px;
+    border-radius: 50px;
+    color: var(--paper);
+    background: var(--wine);
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .lost-home span {
+    display: grid;
+    place-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--paper);
+    color: var(--wine);
+    font-size: 21px;
+    transition: transform 0.2s;
+  }
+  .lost-home:hover span {
+    transform: rotate(45deg);
+  }
+  .lost-events {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    min-height: 44px;
+    border-bottom: 1px solid var(--line);
+    font-size: 14px;
+  }
+  .lost-events:hover {
+    color: var(--wine);
+    border-color: var(--wine);
+  }
+  @media (max-width: 1000px) {
+    .lost-page {
+      grid-template-columns: 1fr;
+      gap: 44px;
+      min-height: auto;
+      padding-block: 56px 88px;
+    }
+    .lost-art {
+      max-width: 620px;
+      width: 100%;
+      margin-inline: auto;
+    }
+    .lost-copy {
+      max-width: 620px;
+      width: 100%;
+      margin-inline: auto;
+    }
+    .lost-four {
+      font-size: clamp(180px, 30vw, 280px);
+    }
+    .lost-zero {
+      width: clamp(140px, 21vw, 205px);
+    }
+  }
+  @media (max-width: 600px) {
+    .lost-page {
+      padding-block: 36px 64px;
+      gap: 32px;
+    }
+    .lost-art {
+      justify-content: flex-start;
+    }
+    .lost-four {
+      font-size: clamp(112px, 30vw, 180px);
+    }
+    .lost-zero {
+      width: clamp(88px, 23vw, 140px);
+      margin-inline: -4px -1px;
+    }
+    .lost-label {
+      margin-bottom: 20px;
+    }
+    .lost-copy h1 {
+      font-size: clamp(33px, 8.6vw, 45px);
+    }
+    .lost-description {
+      font-size: 16px;
+      margin: 22px 0 28px;
+    }
+    .lost-actions {
+      gap: 16px 24px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .lost-home span {
+      transition: none;
+    }
+  }
+</style>

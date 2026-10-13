@@ -1,0 +1,499 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../config/site';
+import CommunityPhoto from '../components/CommunityPhoto.astro';
+import { siteVisuals } from '../content/visuals';
+---
+
+<Base title="Bize katıl">
+  <div class="interior join-page wrap">
+    <section class="recruit-hero">
+      <div class="recruit-copy">
+        <p class="eyebrow">HUAWEI STUDENT DEVELOPERS / İNÖNÜ</p>
+        <h1>
+          Merakını da al,
+          <br />
+          <em>gel.</em>
+        </h1>
+        <p class="recruit-intro">
+          Teknolojiye olan merakını paylaşacağın insanlar, birlikte üreteceğin
+          fikirler ve kampüsün ötesine uzanan deneyimler.
+        </p>
+        <div class="recruit-actions">
+          <a
+            class="pill dark"
+            href={site.applicationUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Aramıza katıl <span aria-hidden="true">↗</span>
+          </a>
+          <a class="text-link" href="/topluluk/">
+            Önce bizi tanı <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <p class="recruit-note">
+          Kayıt, üniversitenin topluluk sisteminde öğrenci hesabınla devam eder.
+        </p>
+      </div>
+      <div class="recruit-visual">
+        <figure class="recruit-main-photo">
+          <CommunityPhoto
+            imageSlot="joinMain"
+            photo="community"
+            alt="HSD İnönü topluluk buluşmasında bir araya gelen öğrenciler"
+          />
+          <figcaption>Bir fotoğraf. Bir sürü ortak hikâye.</figcaption>
+        </figure>
+        <figure class="recruit-small-photo">
+          <img
+            src={siteVisuals.joinSmall.image}
+            alt={siteVisuals.joinSmall.alt}
+            width={siteVisuals.joinSmall.width}
+            height={siteVisuals.joinSmall.height}
+            decoding="async"
+          />
+          <figcaption>Fikirler burada buluşur.</figcaption>
+        </figure>
+        <div class="recruit-stamp" aria-hidden="true">
+          <span>HSD İNÖNÜ</span>
+          <strong>+</strong>
+          <span>SEN</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="recruit-benefits" aria-labelledby="benefits-title">
+      <div class="recruit-benefits-heading">
+        <p class="eyebrow">BURADA SENİ NE BEKLİYOR?</p>
+        <h2 id="benefits-title">
+          Bir topluluktan <em>daha fazlası.</em>
+        </h2>
+      </div>
+      <div class="recruit-benefit-grid">
+        <a href="/etkinlikler/" class="recruit-benefit">
+          <span class="recruit-index">01 / ÖĞREN</span>
+          <h3>
+            Merakını <br />
+            birlikte büyüt.
+          </h3>
+          <p>
+            Teknik buluşmalar, sektör sohbetleri ve birbirimizden öğrendiğimiz
+            yeni bakış açıları.
+          </p>
+          <span class="recruit-benefit-link">Buluşmaları keşfet ↗</span>
+        </a>
+        <a href="/etkinlikler/yorunge-muhafizi/" class="recruit-benefit">
+          <span class="recruit-index">02 / ÜRET</span>
+          <h3>
+            Bir fikirden <br />
+            bir projeye.
+          </h3>
+          <p>
+            Yörünge Muhafızı gibi birlikte geliştirilen projelerle, merakı somut
+            bir işe dönüştür.
+          </p>
+          <span class="recruit-benefit-link">Birlikte ne ürettik? ↗</span>
+        </a>
+        <a
+          href="/etkinlikler/cumhuriyetin-kalbinde-inovasyon/"
+          class="recruit-benefit"
+        >
+          <span class="recruit-index">03 / KEŞFET</span>
+          <h3>
+            Kampüsün <br />
+            ötesine geç.
+          </h3>
+          <p>
+            Ankara gezisinden farklı üniversitelerle buluşmalara: yeni yerler,
+            yeni insanlar, ortak deneyimler.
+          </p>
+          <span class="recruit-benefit-link">Yolculuğumuza bak ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="recruit-core" aria-labelledby="application-title">
+      <div>
+        <p class="application-period">{site.coreApplicationLabel}</p>
+        <h2 id="application-title">
+          Bir adım daha.
+          <br />
+          <em>Birlikte yön verelim.</em>
+        </h2>
+        <p>
+          Komitelerde sorumluluk almak ve topluluğun çalışmalarına katkıda
+          bulunmak için ekip başvurusunu incele.
+        </p>
+      </div>
+      <a
+        class="pill recruit-core-button"
+        href={site.coreApplicationUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Ekip başvurusunu incele ↗
+      </a>
+    </section>
+    <section class="join-answers" aria-labelledby="join-questions">
+      <h2 id="join-questions">Başlamadan önce.</h2>
+      <div class="faq">
+        <details>
+          <summary>
+            Topluluk kaydı ile ekip başvurusu farklı mı?
+            <span aria-hidden="true">+</span>
+          </summary>
+          <p>
+            Evet. Topluluk kaydı üniversitenin sisteminde, komitelerde görev
+            almak için ekip başvurusu ayrı formda yer alıyor.
+          </p>
+        </details>
+        <details>
+          <summary>
+            Katılım koşullarını nereden öğrenebilirim?
+            <span aria-hidden="true">+</span>
+          </summary>
+          <p>
+            Güncel koşullar kayıt sisteminde ve ilgili başvuru formunda
+            belirtilir. Soruların için{' '}
+            <a href={`mailto:${site.email}`}>bize e-posta gönderebilirsin.</a>
+          </p>
+        </details>
+        <details>
+          <summary>
+            Yeni buluşmaları nasıl takip ederim?
+            <span aria-hidden="true">+</span>
+          </summary>
+          <p>
+            <a href="/etkinlikler/">Etkinlikler sayfamızı</a> inceleyebilir,
+            yeni duyurular için{' '}
+            <a href={site.instagram} target="_blank" rel="noopener noreferrer">
+              Instagram hesabımızı
+            </a>{' '}
+            takip edebilirsin.
+          </p>
+        </details>
+      </div>
+    </section>
+    <div class="recruit-final">
+      <p>
+        Bir sonraki hikâyede
+        <br />
+        <em>sen de ol.</em>
+      </p>
+      <a
+        class="pill dark"
+        href={site.applicationUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Aramıza katıl <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .recruit-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: clamp(32px, 5vw, 90px);
+    align-items: center;
+    padding: 64px 0 96px;
+  }
+  .recruit-copy h1 {
+    margin: 24px 0;
+    font-size: clamp(48px, 5.5vw, 94px);
+    line-height: 1.04;
+  }
+  .recruit-intro {
+    font-size: clamp(16px, 1.3vw, 19px);
+    line-height: 1.8;
+    max-width: 42ch;
+    color: var(--muted);
+  }
+  .recruit-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+    margin-top: 30px;
+  }
+  .recruit-actions .pill,
+  .recruit-final .pill {
+    background: var(--wine);
+    color: white;
+    padding: 17px 28px;
+  }
+  .recruit-note {
+    margin-top: 18px;
+    font-size: 11px;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 43ch;
+  }
+  .recruit-visual {
+    position: relative;
+    padding: 0 0 70px 24px;
+  }
+  .recruit-main-photo {
+    margin: 0;
+    position: relative;
+  }
+  .recruit-main-photo :global(picture) {
+    display: block;
+    overflow: hidden;
+    border-radius: 90px 6px 6px 6px;
+    aspect-ratio: 1.12;
+  }
+  .recruit-main-photo :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .recruit-main-photo figcaption {
+    text-align: right;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 10px;
+  }
+  .recruit-small-photo {
+    position: absolute;
+    left: -20px;
+    bottom: 0;
+    width: 42%;
+    margin: 0;
+    padding: 8px;
+    background: #faf8f3;
+    transform: rotate(-6deg);
+    box-shadow: 0 12px 32px #20212518;
+  }
+  .recruit-small-photo img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+  .recruit-small-photo figcaption {
+    padding: 9px 3px 2px;
+    font-size: 9px;
+  }
+  .recruit-stamp {
+    position: absolute;
+    right: -12px;
+    top: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    color: white;
+    background: var(--wine);
+    transform: rotate(10deg);
+    box-shadow: 0 0 0 7px var(--paper);
+  }
+  .recruit-stamp span {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+  }
+  .recruit-stamp strong {
+    font-size: 43px;
+    line-height: 1.1;
+    font-weight: 400;
+  }
+  .recruit-benefits {
+    padding: 48px 0 72px;
+    border-top: 1px solid var(--line);
+  }
+  .recruit-benefits-heading {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+  .recruit-benefits-heading h2 {
+    max-width: 16ch;
+    font-size: clamp(32px, 3.6vw, 60px);
+  }
+  @media (min-width: 701px) {
+    .recruit-benefits-heading {
+      flex-direction: column;
+      gap: 16px;
+    }
+    .recruit-benefits-heading h2 {
+      max-width: none;
+      white-space: nowrap;
+    }
+  }
+  .recruit-benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px;
+  }
+  .recruit-benefit {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--ink);
+    padding-top: 22px;
+  }
+  .recruit-index {
+    font-size: 10px;
+    color: var(--wine);
+    letter-spacing: 0.08em;
+  }
+  .recruit-benefit h3 {
+    font-size: clamp(26px, 2.7vw, 42px);
+    line-height: 1.16;
+    margin: 24px 0 18px;
+    transition: color 0.25s;
+  }
+  .recruit-benefit p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 36ch;
+  }
+  .recruit-benefit-link {
+    font-size: 12px;
+    margin-top: auto;
+    padding-top: 26px;
+  }
+  .recruit-benefit:hover h3 {
+    color: var(--wine);
+  }
+  .recruit-core {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    background: #30151f;
+    color: white;
+    padding: clamp(28px, 4.5vw, 72px);
+    position: relative;
+    overflow: hidden;
+  }
+  .recruit-core h2 {
+    font-size: clamp(32px, 3.8vw, 60px);
+    margin: 20px 0;
+    line-height: 1.1;
+  }
+  .recruit-core h2 em {
+    color: #eab1c3;
+  }
+  .recruit-core p {
+    max-width: 54ch;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #d7c8cd;
+  }
+  .recruit-core .application-period {
+    font-size: 11px;
+    color: #eab1c3;
+  }
+  .recruit-core-button {
+    background: #faf8f3;
+    color: #30151f;
+    flex-shrink: 0;
+  }
+  .recruit-core-button:hover {
+    background: #eadce1;
+  }
+  .recruit-final {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    padding: 48px 0 8px;
+    margin-top: 56px;
+    border-top: 1px solid var(--line);
+  }
+  .recruit-final p {
+    font-size: clamp(32px, 3.6vw, 56px);
+    line-height: 1.15;
+    letter-spacing: -0.05em;
+  }
+  @media (max-width: 1000px) {
+    .recruit-hero {
+      gap: 36px;
+    }
+    .recruit-actions {
+      gap: 16px;
+    }
+    .recruit-stamp {
+      width: 88px;
+      height: 88px;
+      right: 0;
+    }
+    .recruit-stamp strong {
+      font-size: 32px;
+    }
+    .recruit-benefit-grid {
+      gap: 24px;
+    }
+    .recruit-core {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+  @media (max-width: 700px) {
+    .recruit-hero {
+      grid-template-columns: 1fr;
+      padding: 36px 0 64px;
+      gap: 48px;
+    }
+    .recruit-copy .eyebrow {
+      font-size: 9px;
+    }
+    .recruit-copy h1 {
+      font-size: clamp(48px, 11vw, 72px);
+      margin: 20px 0;
+    }
+    .recruit-visual {
+      padding: 0 0 48px 16px;
+    }
+    .recruit-main-photo :global(picture) {
+      aspect-ratio: 1.3;
+      border-top-left-radius: 64px;
+    }
+    .recruit-small-photo {
+      left: 0;
+    }
+    .recruit-stamp {
+      top: -14px;
+    }
+    .recruit-benefits {
+      padding: 36px 0 48px;
+    }
+    .recruit-benefits-heading {
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    .recruit-benefit-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .recruit-benefit h3 br {
+      display: none;
+    }
+    .recruit-benefit h3 {
+      margin: 14px 0 12px;
+    }
+    .recruit-benefit-link {
+      padding-top: 16px;
+    }
+    .recruit-final {
+      flex-direction: column;
+      align-items: start;
+      gap: 24px;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .recruit-benefit h3 {
+      transition: none;
+    }
+  }
+</style>

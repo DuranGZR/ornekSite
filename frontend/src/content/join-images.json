@@ -1,0 +1,14 @@
+{
+  "joinMain": {
+    "image": "/photos/community-1280.webp",
+    "alt": "HSD İnönü topluluk buluşmasında bir araya gelen öğrenciler",
+    "width": 1280,
+    "height": 960
+  },
+  "joinSmall": {
+    "image": "/photos/stand.jpg",
+    "alt": "Projelerini sergileyen HSD İnönü ekibi",
+    "width": 800,
+    "height": 600
+  }
+}

@@ -1,0 +1,265 @@
+---
+import { siteVisuals } from '../content/visuals';
+import initialGallery from '../content/gallery.json';
+const photos = siteVisuals.gallery ?? initialGallery;
+const rows = [1, 2, 3].map((row) =>
+  photos.filter((photo) => photo.row === row),
+);
+---
+
+{photos.length > 0 && (
+  <section
+    class="community-film interior-section"
+    aria-labelledby="film-title"
+    data-film
+  >
+    <div class="film-heading">
+      <div>
+        <h2 id="film-title">
+          Birlikte <em>biriktirdiklerimiz.</em>
+        </h2>
+      </div>
+    </div>
+    <div class="film-reels">
+      {rows.map(
+        (row, index) =>
+          row.length > 0 && (
+            <div
+              class="film-reel"
+              tabindex="0"
+              role="region"
+              aria-label={`${index + 1}. fotoğraf şeridi. Gezinmek için sağ ve sol ok tuşlarını kullan.`}
+              data-direction={index === 1 ? -1 : 1}
+            >
+              <div class="film-track">
+                <div class="film-group">
+                  {row.map((photo, photoIndex) => (
+                    <button
+                      type="button"
+                      aria-label={`${photo.alt}: büyük görüntüle`}
+                      class="film-frame"
+                      style={`--frame-width: ${photoIndex % 3 === 0 ? 350 : photoIndex % 3 === 1 ? 290 : 390}px`}
+                    >
+                      <div class="film-image">
+                        <img
+                          src={photo.image}
+                          alt={photo.alt}
+                          width={photo.width}
+                          height={photo.height}
+                          loading="lazy"
+                          decoding="async"
+                          draggable="false"
+                        />
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ),
+      )}
+    </div>
+    <dialog
+      class="film-lightbox"
+      aria-label="Topluluk fotoğrafı"
+      data-lenis-prevent
+    >
+      <div class="film-viewer">
+        <button type="button" class="film-close" aria-label="Fotoğrafı kapat">
+          ×
+        </button>
+        <img class="film-full-image" alt="" data-dynamic-image />
+        <p class="film-load-error" hidden>
+          Görsel yüklenemedi.
+        </p>
+      </div>
+    </dialog>
+  </section>
+)}
+
+<style>
+  .community-film {
+    padding-top: 48px;
+    border-top: 1px solid var(--line);
+  }
+  .film-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 32px;
+  }
+  .film-heading h2 {
+    margin-bottom: 40px;
+    max-width: 780px;
+  }
+  .film-heading h2 em {
+    display: block;
+  }
+  .film-reels {
+    width: calc(100% + 2 * var(--gutter));
+    margin-left: calc(-1 * var(--gutter));
+    display: grid;
+    gap: 22px;
+    overflow: hidden;
+    padding: 12px 0;
+  }
+  .film-reel {
+    overflow: hidden;
+    background: #22211f;
+    cursor: grab;
+    touch-action: pan-y;
+    position: relative;
+  }
+  .film-reel:active {
+    cursor: grabbing;
+  }
+  .film-reel:focus-visible {
+    outline: 3px solid var(--wine);
+    outline-offset: 4px;
+  }
+  .film-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+  }
+  .film-group {
+    flex: none;
+    display: flex;
+    align-items: stretch;
+    padding: 28px 0;
+    position: relative;
+  }
+  .film-group::before,
+  .film-group::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 10px;
+    background: repeating-linear-gradient(
+      to right,
+      transparent 0 7px,
+      var(--paper) 7px 21px,
+      transparent 21px 28px
+    );
+  }
+  .film-group::before {
+    top: 8px;
+  }
+  .film-group::after {
+    bottom: 8px;
+  }
+  .film-frame {
+    margin: 0;
+    padding: 0 8px;
+    width: var(--frame-width);
+    flex: none;
+    user-select: none;
+    border: 0;
+    background: transparent;
+    cursor: grab;
+    text-align: left;
+  }
+  .film-frame:focus-visible {
+    outline: 2px solid white;
+    outline-offset: -4px;
+  }
+  .film-frame:active {
+    cursor: grabbing;
+  }
+  .film-lightbox {
+    position: fixed;
+    inset: 0;
+    margin: 0;
+    border: 0;
+    padding: 64px 24px 24px;
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    background: transparent;
+  }
+  .film-lightbox[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .film-lightbox::backdrop {
+    background: rgb(12 12 14 / 65%);
+  }
+  .film-viewer {
+    position: relative;
+    max-width: 50vw;
+  }
+  .film-full-image {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 48dvh;
+    object-fit: contain;
+    border-radius: 3px;
+    box-shadow: 0 20px 80px rgb(0 0 0 / 30%);
+  }
+  .film-load-error {
+    color: white;
+  }
+  .film-close {
+    position: absolute;
+    top: -54px;
+    right: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgb(255 255 255 / 35%);
+    color: white;
+    background: rgb(255 255 255 / 10%);
+    font-size: 30px;
+    line-height: 1;
+  }
+  .film-image {
+    height: 185px;
+    overflow: hidden;
+    border-radius: 2px;
+    background: #383631;
+  }
+  .film-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+  @media (min-width: 1500px) {
+    .film-reels {
+      width: 100vw;
+      margin-left: calc((100% - 100vw) / 2);
+    }
+  }
+  @media (max-width: 900px) {
+    .film-heading {
+      align-items: start;
+      flex-direction: column;
+    }
+  }
+  @media (max-width: 700px) {
+    .film-viewer {
+      max-width: 85vw;
+    }
+    .community-film {
+      padding-top: 32px;
+    }
+    .film-reels {
+      gap: 16px;
+    }
+    .film-frame {
+      width: calc(var(--frame-width) * 0.72);
+    }
+    .film-image {
+      height: 145px;
+    }
+  }
+</style>
+
+<script>
+  import { initCommunityFilm } from '../scripts/community-film';
+  initCommunityFilm();
+</script>

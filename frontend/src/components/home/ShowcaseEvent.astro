@@ -1,0 +1,43 @@
+---
+import { type CommunityEvent } from '../../content/data';
+import { eventDate, eventTime } from '../../utils/date';
+interface Props {
+  event: CommunityEvent;
+  featured?: boolean;
+}
+const { event, featured = false } = Astro.props;
+---
+
+<a
+  class:list={['showcase-panel', 'poster-panel', { 'is-featured': featured }]}
+  href={`/etkinlikler/${event.slug}/`}
+>
+  <div class="poster-media">
+    <img
+      src={event.image}
+      alt={event.imageAlt}
+      loading="lazy"
+      width={event.imageWidth}
+      height={event.imageHeight}
+    />
+  </div>
+  <div class="showcase-bottom">
+    <div class="showcase-copy">
+      <p class="eyebrow poster-category">
+        {featured ? `SIRADAKİ ETKİNLİK / ${event.category}` : event.category}
+      </p>
+      <h3>{event.title}</h3>
+      <p class="poster-description">{event.description}</p>
+      <div class="showcase-details">
+        <time datetime={event.date}>
+          {eventDate(event.date)}
+          {eventTime(event.date) && ` · ${eventTime(event.date)}`}
+        </time>
+        <span>{event.location}</span>
+      </div>
+      <span class="showcase-link">
+        Etkinliği incele <span aria-hidden="true">↗</span>
+      </span>
+    </div>
+  </div>
+</a>

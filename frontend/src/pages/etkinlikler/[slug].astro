@@ -1,0 +1,120 @@
+---
+import Base from '../../layouts/Base.astro';
+import { events, projectTeam } from '../../content/data';
+import { eventDate, eventTime } from '../../utils/date';
+export function getStaticPaths() {
+  return events.map((event) => ({
+    params: { slug: event.slug },
+    props: { event },
+  }));
+}
+const { event } = Astro.props;
+const related = events.filter((item) => item.slug !== event.slug).slice(0, 2);
+---
+
+<Base title={event.title} description={event.description}>
+  <section class="wrap page-intro detail-intro">
+    <a class="text-link back-link" href="/etkinlikler/">
+      ← Etkinliklere dön
+    </a>
+    <p class="eyebrow">{event.category} / ETKİNLİK ARŞİVİ</p>
+    <h1>{event.title}</h1>
+    <p class="lead">{event.description}</p>
+  </section>
+  <section class="wrap section-space">
+    <div class="detail-story">
+      <img
+        class="wide-photo event-detail-photo"
+        src={event.image}
+        alt={event.imageAlt}
+        width={event.imageWidth}
+        height={event.imageHeight}
+      />
+      <aside class="detail-aside">
+        <p class="eyebrow">ETKİNLİK BİLGİLERİ</p>
+        <p class="event-state">
+          {event.status === 'upcoming' ? 'Yaklaşan etkinlik' : 'Tamamlandı'}
+        </p>
+        {event.date && <h2>{eventDate(event.date)}</h2>}
+        {eventTime(event.date) && <p>{eventTime(event.date)}</p>}
+        <p>{event.location}</p>
+        <hr />
+        <p>
+          {event.status === 'upcoming'
+            ? 'Katılım ayrıntıları için topluluğun duyurusunu incele.'
+            : 'Topluluğun etkinlik arşivinden.'}
+        </p>
+        <a
+          class="pill dark"
+          href={event.source}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {event.source.includes('/company/')
+            ? 'Topluluk duyuruları'
+            : 'İlgili paylaşım'}{' '}
+          ↗
+        </a>
+        {event.recording && (
+          <a
+            class="text-link recording-link"
+            href={event.recording}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Yayın kaydını izle ↗
+          </a>
+        )}
+      </aside>
+    </div>
+    <div class="detail-grid">
+      <div>
+        <h2>Öne çıkanlar</h2>
+        <ol class="agenda">
+          {event.agenda.map((item) => (
+            <li>{item}</li>
+          ))}
+        </ol>
+        {event.speakers.length > 0 && (
+          <>
+            <h3>Konuşmacılar</h3>
+            <p>{event.speakers.join(', ')}</p>
+          </>
+        )}
+      </div>
+    </div>
+    {event.category === 'Proje' && (
+      <section class="project-details" aria-labelledby="project-team-title">
+        <div>
+          <h2 id="project-team-title">Proje ekibi.</h2>
+          <ul>
+            {projectTeam.map((name) => (
+              <li>{name}</li>
+            ))}
+          </ul>
+        </div>
+        <figure>
+          <img
+            src="/1746719827378.jpg"
+            width="800"
+            height="600"
+            loading="lazy"
+            alt="Topluluk standında projelerini sergileyen HSD İnönü katılımcıları"
+          />
+          <figcaption>Topluluk standından.</figcaption>
+        </figure>
+      </section>
+    )}
+    <nav class="related-events" aria-label="Diğer etkinlikler">
+      <h2>Keşfetmeye devam et.</h2>
+      <div>
+        {related.map((item) => (
+          <a href={`/etkinlikler/${item.slug}/`}>
+            {item.title}
+            <span aria-hidden="true">↗</span>
+          </a>
+        ))}
+      </div>
+    </nav>
+  </section>
+</Base>

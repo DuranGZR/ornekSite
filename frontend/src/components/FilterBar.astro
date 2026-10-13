@@ -1,0 +1,125 @@
+---
+import ArchiveSelect from './ArchiveSelect.astro';
+interface Props {
+  categories: string[];
+}
+const { categories } = Astro.props;
+---
+
+<ArchiveSelect
+  id="event-category"
+  label="Etkinlik türü"
+  kind="category"
+  options={[
+    { value: 'Tümü', label: 'Tüm türler' },
+    ...categories.map((category) => ({ value: category, label: category })),
+  ]}
+/>
+<script>
+  document
+    .querySelectorAll<HTMLElement>('[data-filter-root]')
+    .forEach((root) => {
+      const category = root.querySelector<HTMLSelectElement>(
+        '[data-category-filter]',
+      );
+      const loadMore =
+        root.querySelector<HTMLButtonElement>('[data-load-more]');
+      const desktopLayout = window.matchMedia('(min-width: 1051px)');
+      let pageSize = desktopLayout.matches ? 6 : 4;
+      let visiblePages = 1;
+      const items = root.querySelectorAll<HTMLElement>('[data-category]');
+      const status = root.querySelector<HTMLElement>('[data-filter-status]');
+      const empty = root.querySelector<HTMLElement>('[data-empty]');
+      const period = root.querySelector<HTMLSelectElement>('[data-period]');
+      const reset = root.querySelector<HTMLButtonElement>(
+        '[data-filter-reset]',
+      );
+      const notice = root.querySelector<HTMLElement>('[data-upcoming-note]');
+      const hasUpcoming = [...items].some(
+        (item) =>
+          item.dataset.status === 'upcoming' &&
+          item.dataset.date &&
+          new Date(item.dataset.date).getTime() >= Date.now(),
+      );
+      const emptyTitle = root.querySelector<HTMLElement>('[data-empty-title]');
+      const emptyDescription = root.querySelector<HTMLElement>(
+        '[data-empty-description]',
+      );
+      function apply() {
+        const visibleLimit = visiblePages * pageSize;
+        let count = 0;
+        let shown = 0;
+        items.forEach((item) => {
+          const time = item.dataset.date
+            ? new Date(item.dataset.date).getTime()
+            : null;
+          const upcoming =
+            item.dataset.status !== 'completed' &&
+            time !== null &&
+            time >= Date.now();
+          const periodMatches =
+            !period ||
+            period.value === 'all' ||
+            (period.value === 'upcoming' ? upcoming : !upcoming);
+          const show =
+            (!category ||
+              category.value === 'Tümü' ||
+              item.dataset.category === category.value) &&
+            periodMatches;
+          if (show) count++;
+          item.hidden = !show || count > visibleLimit;
+          if (!item.hidden) shown++;
+        });
+        if (status)
+          status.textContent = `${count} içerikten ${shown} tanesi gösteriliyor`;
+        if (loadMore) loadMore.hidden = count <= visibleLimit;
+        if (empty) empty.hidden = count > 0;
+        const noUpcoming = period?.value === 'upcoming' && !hasUpcoming;
+        if (notice) notice.hidden = hasUpcoming || count === 0;
+        if (emptyTitle)
+          emptyTitle.textContent = noUpcoming
+            ? 'Yeni buluşmalar yolda.'
+            : 'Bu seçimde bir buluşma yok.';
+        if (emptyDescription)
+          emptyDescription.textContent = noUpcoming
+            ? 'Şu anda duyurulmuş yaklaşan etkinlik bulunmuyor. Geçmiş buluşmaları keşfet veya yeni duyurular için bizi takip et.'
+            : 'Seçtiğin filtrelerle eşleşen bir etkinlik bulamadık. Filtreleri temizleyip keşfetmeye devam edebilirsin.';
+        const resetLabel =
+          reset?.querySelector<HTMLElement>('[data-reset-label]');
+        if (resetLabel)
+          resetLabel.textContent = noUpcoming
+            ? 'Arşivi keşfet'
+            : 'Filtreleri temizle';
+      }
+      function resetLimit() {
+        visiblePages = 1;
+        apply();
+      }
+      category?.addEventListener('change', resetLimit);
+      period?.addEventListener('change', resetLimit);
+      desktopLayout.addEventListener('change', () => {
+        pageSize = desktopLayout.matches ? 6 : 4;
+        apply();
+      });
+      loadMore?.addEventListener('click', () => {
+        const previouslyHidden = [...items].filter((item) => item.hidden);
+        visiblePages++;
+        apply();
+        if (loadMore.hidden) {
+          const firstNewLink = previouslyHidden
+            .find((item) => !item.hidden)
+            ?.querySelector<HTMLAnchorElement>('a');
+          firstNewLink?.focus({ preventScroll: true });
+        }
+      });
+      reset?.addEventListener('click', () => {
+        if (category) category.value = 'Tümü';
+        if (period) period.value = 'all';
+        category?.dispatchEvent(new Event('change'));
+        period?.dispatchEvent(new Event('change'));
+        resetLimit();
+        root.querySelector<HTMLButtonElement>('[data-select-trigger]')?.focus();
+      });
+      apply();
+    });
+</script>

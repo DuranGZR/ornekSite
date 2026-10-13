@@ -1,0 +1,375 @@
+{
+  "schemaVersion": 1,
+  "publishedAt": "2026-10-13T18:58:27.911Z",
+  "events": [
+    {
+      "slug": "cumhuriyetin-kalbinde-inovasyon",
+      "image": "/community/ankara.jpg",
+      "title": "Cumhuriyetin Kalbinde İnovasyon",
+      "agenda": [
+        "Teknik ve kültürel ziyaretler",
+        "Girişimcilik ve inovasyon ekosistemini yakından tanıma",
+        "Gençlik ve Spor Bakanlığı ÜNİDES programı desteği"
+      ],
+      "source": "https://tr.linkedin.com/posts/hsdin%C3%B6n%C3%BC_huaweistudentdevelopers-hsdin%C3%B6n%C3%BC-%C3%BCnides-activity-7404807327679201284-WZgM",
+      "status": "completed",
+      "category": "Teknik gezi",
+      "imageAlt": "HSD İnönü Ankara gezisinin topluluk paylaşımı",
+      "location": "Ankara",
+      "speakers": [],
+      "imageWidth": 480,
+      "description": "ÜNİDES desteğiyle 32 kişilik HSD İnönü ekibi, Ankara’da teknoloji ve kültürü bir araya getiren bir yolculuğa çıktı.",
+      "imageHeight": 600
+    },
+    {
+      "slug": "vision-fest-ii",
+      "image": "/community/vision-fest.jpg",
+      "title": "Vision Fest II",
+      "agenda": [
+        "Üniversite topluluklarıyla buluşma",
+        "Teknoloji ve girişimcilik odağında deneyim paylaşımı"
+      ],
+      "source": "https://www.linkedin.com/company/hsdin%C3%B6n%C3%BC/posts/",
+      "status": "completed",
+      "category": "Zirve",
+      "imageAlt": "Vision Fest II etkinliğinde HSD İnönü ekibi",
+      "location": "Fırat Üniversitesi",
+      "speakers": [],
+      "imageWidth": 800,
+      "description": "HSD Fırat’ın ev sahipliğinde gerçekleşen Vision Fest II’de farklı topluluklarla bir araya geldik; teknoloji ve girişimcilik üzerine deneyimler paylaştık.",
+      "imageHeight": 600
+    },
+    {
+      "date": "2026-01-22T18:30:00+03:00",
+      "slug": "yurt-disi-kariyer-yolculugu",
+      "image": "/community/sektorel-sohbetler.jpg",
+      "title": "Sektörel Sohbetler: Yurt Dışı Kariyer Yolculuğu",
+      "agenda": [
+        "Yurt dışında çalışma ve adaptasyon",
+        "Teknik ve kişisel yetkinlikler",
+        "Gerçek sektör deneyimleriyle kariyer planlama"
+      ],
+      "source": "https://www.linkedin.com/posts/sektaemrelsohbetler-techcareer-seniorsoftwareengineer-share-7419324562833801216-e4te/",
+      "status": "completed",
+      "category": "Söyleşi",
+      "imageAlt": "Koray Göçmen ile Yurt Dışı Kariyer Yolculuğu yayın afişi",
+      "location": "HDG Türkiye YouTube kanalı · Çevrim içi",
+      "speakers": [
+        "Koray Göçmen"
+      ],
+      "recording": "https://l24.im/kS0DudE",
+      "imageWidth": 480,
+      "description": "Sektörel Sohbetler’in altıncı bölümünde Koray Göçmen ile global yazılım kariyeri, yurt dışında çalışma ve gelişim üzerine konuştuk.",
+      "imageHeight": 600
+    },
+    {
+      "slug": "yorunge-muhafizi",
+      "image": "/community/yorunge-muhafizi.jpg",
+      "title": "Yörünge Muhafızı: İNÜFEST üçüncülüğü",
+      "agenda": [
+        "Yörünge Muhafızı projesi",
+        "İNÜFEST üçüncülük derecesi"
+      ],
+      "source": "https://www.linkedin.com/company/hsdin%C3%B6n%C3%BC/posts/",
+      "status": "completed",
+      "category": "Proje",
+      "imageAlt": "Yörünge Muhafızı proje ekibinin İNÜFEST paylaşımı",
+      "location": "İnönü Üniversitesi · İNÜFEST",
+      "speakers": [],
+      "imageWidth": 480,
+      "description": "Yörünge Muhafızı projesiyle İNÜFEST’te üçüncülük elde eden ekibimiz, birlikte üretmenin gücünü ortaya koydu.",
+      "imageHeight": 640
+    },
+    {
+      "slug": "teknoloji-ve-yenilik-zirvesi",
+      "image": "/community/teknoloji-zirvesi.jpg",
+      "title": "Teknoloji ve Yenilik Zirvesi",
+      "agenda": [
+        "Üç üniversitenin toplulukları arasında iş birliği",
+        "Teknoloji ve kariyer üzerine deneyim paylaşımı",
+        "Sektör temsilcileriyle tanışma ve fikir alışverişi"
+      ],
+      "source": "https://www.linkedin.com/company/hsdin%C3%B6n%C3%BC/posts/",
+      "status": "completed",
+      "category": "Zirve",
+      "imageAlt": "Teknoloji ve Yenilik Zirvesi topluluk paylaşımı ve ekip fotoğrafı",
+      "location": "Malatya",
+      "speakers": [
+        "Deniz Yalçın",
+        "Fazıl Göleç",
+        "Betül Gündüz Odabaşı",
+        "Tuncay Erol"
+      ],
+      "imageWidth": 480,
+      "description": "HSD İnönü, HSD Fırat ve HSD Malatya Turgut Özal toplulukları; teknoloji, sektör deneyimleri ve yeni fikirler için aynı zirvede buluştu.",
+      "imageHeight": 600
+    }
+  ],
+  "articles": [
+    {
+      "href": "https://medium.com/huawei-student-developers-turkiye/dijital-d%C3%BCnyada-verilerimiz-nas%C4%B1l-saklan%C4%B1yor-4b5124448848",
+      "cover": "https://miro.medium.com/v2/resize:fill:480:318/1*H1Gsq8t1RnSbXbxNVUfEsg.png",
+      "title": "Dijital Dünyada Verilerimiz Nasıl Saklanıyor?",
+      "author": "HSD İnönü Üniversitesi",
+      "category": "Teknoloji",
+      "published": "2026-05-22",
+      "description": "Veri depolamanın temelleri ve gelecekte bizi bekleyen teknolojiler.",
+      "readingMinutes": 4
+    },
+    {
+      "href": "https://medium.com/huawei-student-developers-turkiye/i%CC%87nsanl%C4%B1%C4%9F%C4%B1n-yeni-g%C3%B6zleri-algoritmalar-evreni-nas%C4%B1l-okuyor-12f525ec1022",
+      "cover": "https://miro.medium.com/v2/resize:fill:480:318/1*UhrAi0hpXjL3x5P2ORp_xA.png",
+      "title": "İnsanlığın Yeni Gözleri: Algoritmalar Evreni Nasıl Okuyor?",
+      "author": "HSD İnönü Üniversitesi",
+      "category": "Yapay zekâ",
+      "published": "2026-05-01",
+      "description": "Uydu verilerinden keşfe: yapay zekâ ve görüntü işleme.",
+      "readingMinutes": 3
+    },
+    {
+      "href": "https://medium.com/huawei-student-developers-turkiye/aop-nedir-spring-boot-ile-cross-cutting-concerns-y%C3%B6netimi-e5e41f431448",
+      "cover": "https://miro.medium.com/v2/resize:fill:480:318/1*Jbek_OjYOeZdIQzz5oxL0A.jpeg",
+      "title": "AOP Nedir? Spring Boot ile Cross-Cutting Concerns Yönetimi",
+      "author": "HSD İnönü Üniversitesi",
+      "category": "Yazılım",
+      "published": "2026-04-24",
+      "description": "Spring Boot projelerinde ortak sorumlulukları AOP ile yönetmek.",
+      "readingMinutes": 5
+    },
+    {
+      "href": "https://medium.com/huawei-student-developers-turkiye/jvmde-garbage-collection-nas%C4%B1l-%C3%A7al%C4%B1%C5%9F%C4%B1r-g1gc-zgc-ve-performans-pratikleri-bba4db14f2fa",
+      "cover": "https://miro.medium.com/v2/resize:fill:480:318/1*woX44-hxmsoQyKGQOtMuAA.png",
+      "title": "JVM’de Garbage Collection Nasıl Çalışır? G1GC, ZGC ve Performans Pratikleri",
+      "author": "HSD İnönü Üniversitesi",
+      "category": "Yazılım",
+      "published": "2026-03-31",
+      "description": "JVM bellek yönetimi, G1GC ve ZGC arasındaki farklar ve performans ölçümü.",
+      "readingMinutes": 6
+    },
+    {
+      "href": "https://medium.com/@hsdinonu/sonarqube-nedir-spring-boot-projesi-%C3%BCzerinde-kod-kalitesi-analizi-613538a490d9",
+      "cover": "https://miro.medium.com/v2/resize:fill:480:318/1*xUiBq1fHc4Kv-e-hG1eZSw.png",
+      "title": "SonarQube Nedir? Spring Boot Projesi Üzerinde Kod Kalitesi Analizi",
+      "author": "HSD İnönü Üniversitesi",
+      "category": "Yazılım",
+      "published": "2026-03-25",
+      "description": "Spring Boot projesinde SonarQube kurulumu, kod analizi ve sonuçların yorumlanması.",
+      "readingMinutes": 6
+    }
+  ],
+  "coreTeam": {
+    "isExample": true,
+    "president": {
+      "name": "Arda Aydın",
+      "role": "Topluluk Başkanı"
+    },
+    "committees": [
+      {
+        "name": "Sosyal Medya & Tasarım",
+        "members": [
+          {
+            "name": "Asya Yıldız",
+            "role": "Komite Başkanı"
+          },
+          {
+            "name": "Eylül Arslan",
+            "role": "Komite Üyesi"
+          },
+          {
+            "name": "Mert Demir",
+            "role": "Komite Üyesi"
+          }
+        ],
+        "description": "Topluluğun sesi ve görsel dünyası."
+      },
+      {
+        "name": "DevOps & JuniorOps",
+        "members": [
+          {
+            "name": "Bora Çelik",
+            "role": "Komite Başkanı"
+          },
+          {
+            "name": "Selin Yalçın",
+            "role": "Komite Üyesi"
+          },
+          {
+            "name": "Kerem Güneş",
+            "role": "Komite Üyesi"
+          }
+        ],
+        "description": "Teknik altyapı ve birlikte geliştirme."
+      },
+      {
+        "name": "Organizasyon",
+        "members": [
+          {
+            "name": "Ada Koç",
+            "role": "Komite Başkanı"
+          },
+          {
+            "name": "Ege Özdemir",
+            "role": "Komite Üyesi"
+          },
+          {
+            "name": "İpek Acar",
+            "role": "Komite Üyesi"
+          }
+        ],
+        "description": "Fikirlerden buluşmalara, her ayrıntı."
+      },
+      {
+        "name": "İletişim & Sponsorluk",
+        "members": [
+          {
+            "name": "Deniz Eren",
+            "role": "Komite Başkanı"
+          },
+          {
+            "name": "Nazlı Acar",
+            "role": "Komite Üyesi"
+          },
+          {
+            "name": "Can Yılmaz",
+            "role": "Komite Üyesi"
+          }
+        ],
+        "description": "İş birlikleri ve topluluğun bağlantıları."
+      }
+    ],
+    "vicePresidents": [
+      {
+        "name": "Duru Şahin",
+        "role": "Başkan Yardımcısı"
+      },
+      {
+        "name": "Emre Aksoy",
+        "role": "Başkan Yardımcısı"
+      }
+    ]
+  },
+  "visuals": {
+    "home": {
+      "alt": "HSD İnönü topluluk buluşmasında çekilen grup fotoğrafı",
+      "image": "/managed-media/bb27fa52-1d75-4c55-af39-ed9beb1c6d2f.webp",
+      "width": 1280,
+      "height": 960
+    },
+    "logo": {
+      "alt": "Huawei Student Developers",
+      "image": "/hsd-logo.svg",
+      "width": 480,
+      "height": 180
+    },
+    "team": {
+      "alt": "HSD İnönü topluluk buluşmasında bir araya gelen ekip",
+      "image": "/managed-media/5208ffe0-b13b-42b7-b9cd-b383fc13a620.webp",
+      "width": 1800,
+      "height": 2400
+    },
+    "gallery": [
+      {
+        "alt": "HSD İnönü üyelerinin toplu fotoğrafı",
+        "row": 1,
+        "image": "/photos/community-1280.webp",
+        "width": 1280,
+        "height": 960
+      },
+      {
+        "alt": "İnönü Üniversitesi standındaki HSD ekibi",
+        "row": 1,
+        "image": "/photos/stand.jpg",
+        "width": 800,
+        "height": 600
+      },
+      {
+        "alt": "Topluluk buluşmasında konuşmacıyı dinleyen öğrenciler",
+        "row": 2,
+        "image": "/photos/gathering-1280.webp",
+        "width": 1280,
+        "height": 960
+      },
+      {
+        "alt": "HSD bayrakları arasında topluluk ekibinin sahne fotoğrafı",
+        "row": 2,
+        "image": "/photos/stage.jpg",
+        "width": 800,
+        "height": 600
+      },
+      {
+        "alt": "Projelerini sergileyen HSD İnönü üyeleri",
+        "row": 3,
+        "image": "/managed-media/851d7350-51c7-49db-a3cd-1b04557c12e4.webp",
+        "width": 1800,
+        "height": 2400
+      },
+      {
+        "alt": "HSD İnönü buluşmasında bir araya gelen katılımcılar",
+        "row": 3,
+        "image": "/managed-media/589effa3-2f6a-4297-abe7-6270a21bfe0f.webp",
+        "width": 2400,
+        "height": 1800
+      },
+      {
+        "alt": "..",
+        "row": 1,
+        "image": "/managed-media/16f1703b-281a-40ed-83db-4ad9870e392b.webp",
+        "width": 2400,
+        "height": 1800
+      },
+      {
+        "alt": ".",
+        "row": 1,
+        "image": "/managed-media/91571976-07af-4b50-af8b-74da09a72a68.webp",
+        "width": 1800,
+        "height": 2400
+      },
+      {
+        "alt": "...",
+        "row": 2,
+        "image": "/managed-media/77e518d2-a90b-44c4-9032-f54bbe34fec7.webp",
+        "width": 1800,
+        "height": 2400
+      },
+      {
+        "alt": "....",
+        "row": 2,
+        "image": "/managed-media/ee6ea889-3c63-4a84-b3a5-44007ef30350.webp",
+        "width": 2400,
+        "height": 1351
+      },
+      {
+        "alt": ".....",
+        "row": 3,
+        "image": "/managed-media/01374a49-4b8f-429e-8c13-dabada065bd0.webp",
+        "width": 2400,
+        "height": 1800
+      },
+      {
+        "alt": "......",
+        "row": 3,
+        "image": "/managed-media/cd4887ef-6a6b-4128-81aa-9413e821346e.webp",
+        "width": 2400,
+        "height": 1800
+      }
+    ],
+    "joinMain": {
+      "alt": "HSD İnönü topluluk buluşmasında bir araya gelen öğrenciler",
+      "image": "/managed-media/c549e8a6-1223-4a23-8e82-d0fa8f77c8cf.webp",
+      "width": 2400,
+      "height": 1800
+    },
+    "community": {
+      "alt": "HSD İnönü buluşmasında konuşmacıyı dinleyen katılımcılar",
+      "image": "/photos/gathering-1280.webp",
+      "width": 1280,
+      "height": 960
+    },
+    "joinSmall": {
+      "alt": "Projelerini sergileyen HSD İnönü ekibi",
+      "image": "/photos/stand.jpg",
+      "width": 800,
+      "height": 600
+    }
+  }
+}

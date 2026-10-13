@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+import CoreMember from '../components/CoreMember.astro';
+import MemberProfile from '../components/MemberProfile.astro';
+import { coreTeam } from '../content/team';
+import CommunityPhoto from '../components/CommunityPhoto.astro';
+---
+
+<Base title="Ekip">
+  <div class="interior people-page wrap">
+    <section class="story-opening">
+      <div>
+        <p class="eyebrow">HSD İNÖNÜ / EKİP</p>
+        <h1>
+          Farklı yetenekler.
+          <br />
+          <em>Ortak heyecan.</em>
+        </h1>
+        <p class="lead">
+          Topluluğa yön veren, buluşmaları hazırlayan ve birlikte üreten ekip.
+          Her komitede farklı bir yetenek, aynı heyecan.
+        </p>
+        <a class="text-link" href="#core-team">
+          Core team ile tanış ↓
+        </a>
+      </div>
+      <figure class="opening-photo">
+        <CommunityPhoto
+          imageSlot="team"
+          photo="community"
+          alt="HSD İnönü topluluk buluşmasında bir araya gelen ekip"
+        />
+        <figcaption>İyi ki bir aradayız.</figcaption>
+      </figure>
+    </section>
+    <section
+      class="core-tree interior-section"
+      id="core-team"
+      aria-labelledby="core-title"
+    >
+      <div class="core-heading">
+        <h2 id="core-title">Birlikte, aynı ekipte.</h2>
+        {coreTeam.isExample && <p class="core-example">Örnek ekip yerleşimi</p>}
+      </div>
+      <div class="core-leadership">
+        <div class="core-president">
+          <CoreMember member={coreTeam.president} prominent />
+        </div>
+        <div class="core-deputies">
+          {coreTeam.vicePresidents.map((member) => (
+            <CoreMember member={member} prominent />
+          ))}
+        </div>
+      </div>
+      <div class="core-committees">
+        {coreTeam.committees.map((committee) => (
+          <section
+            class="core-committee"
+            aria-label={`${committee.name} komitesi`}
+          >
+            <div class="committee-heading">
+              <h2>
+                {committee.name}
+                <span>Komitesi</span>
+              </h2>
+              <p>{committee.description}</p>
+            </div>
+            <div class="committee-members">
+              {committee.members.map((member) => (
+                <CoreMember member={member} />
+              ))}
+            </div>
+          </section>
+        ))}
+      </div>
+    </section>
+  </div>
+  <MemberProfile />
+</Base>

@@ -1,0 +1,44 @@
+[
+  {
+    "image": "/photos/community-1280.webp",
+    "alt": "HSD İnönü üyelerinin toplu fotoğrafı",
+    "width": 1280,
+    "height": 960,
+    "row": 1
+  },
+  {
+    "image": "/photos/stand.jpg",
+    "alt": "İnönü Üniversitesi standındaki HSD ekibi",
+    "width": 800,
+    "height": 600,
+    "row": 1
+  },
+  {
+    "image": "/photos/gathering-1280.webp",
+    "alt": "Topluluk buluşmasında konuşmacıyı dinleyen öğrenciler",
+    "width": 1280,
+    "height": 960,
+    "row": 2
+  },
+  {
+    "image": "/photos/stage.jpg",
+    "alt": "HSD bayrakları arasında topluluk ekibinin sahne fotoğrafı",
+    "width": 800,
+    "height": 600,
+    "row": 2
+  },
+  {
+    "image": "/photos/stand.jpg",
+    "alt": "Projelerini sergileyen HSD İnönü üyeleri",
+    "width": 800,
+    "height": 600,
+    "row": 3
+  },
+  {
+    "image": "/photos/community-1280.webp",
+    "alt": "HSD İnönü buluşmasında bir araya gelen katılımcılar",
+    "width": 1280,
+    "height": 960,
+    "row": 3
+  }
+]

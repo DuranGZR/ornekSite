@@ -1,0 +1,23 @@
+---
+interface Props {
+  src: string;
+  alt?: string;
+  class?: string;
+  loading?: 'lazy' | 'eager';
+  width?: string;
+  height?: string;
+}
+const { src, alt = '', class: className, loading = 'lazy' } = Astro.props;
+---
+
+<span class:list={['cover-media', className]}>
+  <img
+    src={src}
+    alt={alt}
+    width="960"
+    height="636"
+    loading={loading}
+    decoding="async"
+    data-cover-image
+  />
+</span>

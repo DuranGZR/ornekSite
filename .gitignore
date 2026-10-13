@@ -1,5 +1,53 @@
+# Dependencies and generated output
 node_modules/
 dist/
 .astro/
+coverage/
+*.tsbuildinfo
+
+# Local configuration; keep the setup template
 .env
-.openai/*.tmp
+.env.*
+!.env.example
+.envrc
+.npmrc
+.netrc
+
+# Admin accounts, database, sessions, and original uploads
+/backend/var/
+local-access.txt
+recovery-codes*.txt
+credentials.json
+service-account*.json
+.aws/
+.ssh/
+secrets/
+backups/
+dumps/
+
+# Local hosting metadata and previews
+.openai/
+/previews/
+/frontend/content-drafts/
+
+# Logs, temporary files, and private keys
+*.log
+*.tmp
+*.bak
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa
+id_ed25519
+*.dump
+*.sql.gz
+*.sqlite
+*.sqlite3
+*.db
+.DS_Store
+Thumbs.db
+
+# Published content and public/managed-media are required by the static site.

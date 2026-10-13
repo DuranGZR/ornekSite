@@ -1,0 +1,32 @@
+---
+import { siteVisuals } from '../content/visuals';
+interface Props {
+  photo: 'community' | 'gathering';
+  alt: string;
+  loading?: 'lazy' | 'eager';
+  imageSlot?: 'home' | 'community' | 'team' | 'joinMain';
+}
+const { photo, alt, loading = 'eager', imageSlot } = Astro.props;
+const image = imageSlot
+  ? siteVisuals[imageSlot]
+  : { image: `/photos/${photo}-1280.webp`, alt, width: 1280, height: 960 };
+const useVariants = image.image === `/photos/${photo}-1280.webp`;
+---
+
+<picture>
+  {useVariants && (
+    <source
+      type="image/webp"
+      srcset={`/photos/${photo}-480.webp 480w, /photos/${photo}-960.webp 960w, /photos/${photo}-1280.webp 1280w`}
+      sizes="(max-width: 700px) 100vw, 50vw"
+    />
+  )}
+  <img
+    src={image.image}
+    width={image.width}
+    height={image.height}
+    alt={image.alt}
+    loading={loading}
+    decoding="async"
+  />
+</picture>

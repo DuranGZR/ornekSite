@@ -1,0 +1,324 @@
+/* A shared light canvas; the blueprint unfolds into the community. */
+body:has(.campus-hero) .header {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 20;
+  background: transparent;
+}
+.campus-hero {
+  height: 100svh;
+  min-height: 760px;
+  background: var(--paper);
+}
+.campus-stage {
+  position: relative;
+  height: 100svh;
+  min-height: 760px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.campus-heading {
+  position: absolute;
+  left: var(--gutter);
+  top: 25%;
+  z-index: 4;
+  width: 46%;
+}
+.campus-kicker {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 11px;
+  flex-wrap: wrap;
+  letter-spacing: 0.12em;
+  font-weight: 650;
+  color: var(--ink);
+}
+.campus-kicker span {
+  color: #827981;
+  font-weight: 450;
+}
+.campus-heading h1 {
+  font-size: clamp(44px, 6.25vw, 124px);
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+  font-weight: 650;
+  margin: 32px 0 28px;
+}
+.campus-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.09em;
+  margin-bottom: -0.09em;
+}
+.campus-line > span {
+  display: block;
+}
+.campus-line-accent {
+  color: var(--wine);
+}
+.campus-description {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #65616a;
+  margin: 0;
+  max-width: 46ch;
+}
+.campus-actions {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.campus-primary {
+  background: var(--wine);
+  font-size: 14px;
+  padding-inline: 24px;
+  gap: 20px;
+}
+.campus-primary:hover {
+  background: #65122c;
+}
+.campus-secondary {
+  font-size: 14px;
+  gap: 14px;
+}
+.campus-announcement {
+  display: grid;
+  gap: 6px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+}
+.campus-announcement time {
+  color: var(--muted);
+  font-size: 12px;
+}
+@media (min-width: 701px) {
+  .campus-heading:has(.campus-announcement) {
+    top: 18%;
+  }
+  .campus-heading:has(.campus-announcement) h1 {
+    font-size: clamp(44px, 5.4vw, 100px);
+    margin-block: 22px;
+  }
+}
+.campus-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  font-size: 13px;
+  font-weight: 600;
+  min-height: 48px;
+}
+.campus-cta > span {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #20212550;
+  border-radius: 50%;
+  font-size: 24px;
+  transition:
+    transform 0.3s,
+    background 0.3s,
+    color 0.3s;
+}
+.campus-cta:hover > span {
+  transform: rotate(45deg);
+  background: var(--ink);
+  color: white;
+}
+.hero-blueprint {
+  position: absolute;
+  width: 52%;
+  right: 1.5%;
+  top: 28%;
+  transform: perspective(1200px) rotateY(-14deg) rotateX(10deg) rotateZ(-8deg);
+  transform-origin: center;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-blueprint svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+.blueprint-label,
+.blueprint-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 0 8%;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: #8c7a83;
+}
+.blueprint-foot {
+  font-size: 7px;
+}
+.campus-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 7;
+}
+.campus-progress i {
+  display: block;
+  height: 100%;
+  background: var(--wine);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+@media (min-width: 701px) and (max-width: 1050px) {
+  .campus-heading {
+    top: 24%;
+  }
+  .campus-heading h1 {
+    font-size: 6.1vw;
+  }
+  .campus-description {
+    font-size: 16px;
+  }
+  .hero-blueprint {
+    top: 39%;
+    right: 0;
+    width: 51%;
+  }
+  .campus-kicker {
+    font-size: 11px;
+  }
+}
+@media (max-width: 700px) {
+  .campus-hero,
+  .campus-stage {
+    min-height: 940px;
+  }
+  .campus-stage {
+    height: auto;
+    padding: 126px 24px 96px;
+  }
+  .campus-heading {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    max-width: none;
+    width: auto;
+  }
+  .campus-kicker {
+    font-size: 11px;
+    letter-spacing: 0.02em;
+  }
+  .campus-heading h1 {
+    font-size: clamp(36px, 11.3vw, 76px);
+    margin: 22px 0 18px;
+    line-height: 1.06;
+  }
+  .campus-description {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .campus-actions {
+    margin-top: 20px;
+    gap: 12px 20px;
+  }
+  .campus-cta {
+    font-size: 11px;
+    padding-left: 0;
+    gap: 18px;
+  }
+  .campus-cta > span {
+    width: 38px;
+    height: 38px;
+  }
+  .campus-secondary {
+    font-size: 14px;
+  }
+  .hero-blueprint {
+    position: relative;
+    width: 100%;
+    right: auto;
+    top: auto;
+    margin-top: 64px;
+    transform: perspective(900px) rotateY(-10deg) rotateX(12deg) rotateZ(-7deg);
+  }
+  .blueprint-label {
+    font-size: 6px;
+  }
+  .blueprint-foot {
+    font-size: 5px;
+  }
+}
+@media (max-width: 360px) {
+  .campus-heading h1 {
+    font-size: 11vw;
+  }
+  .campus-kicker {
+    font-size: 11px;
+  }
+  .campus-description {
+    font-size: 16px;
+  }
+  .campus-actions {
+    gap: 16px;
+  }
+  .hero-blueprint {
+    top: auto;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .blueprint-trace {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .blueprint-depth,
+  .blueprint-nodes {
+    animation: none;
+  }
+  .campus-cta > span {
+    transition: none;
+  }
+}
+
+/* Hold the opening while the artwork centers, then let the story overlap its exit. */
+.home-motion .campus-hero {
+  height: 200svh;
+}
+.home-motion .campus-stage {
+  position: sticky;
+  top: 0;
+}
+.home-motion .community-story {
+  position: relative;
+  z-index: 8;
+  margin-top: -35svh;
+}
+.campus-progress {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .campus-hero,
+  .campus-stage {
+    height: auto;
+    min-height: 0;
+  }
+  .campus-stage {
+    padding: 116px 24px 48px;
+  }
+  .hero-blueprint {
+    width: min(100%, 350px);
+    margin: 32px auto 0;
+  }
+  .blueprint-label,
+  .blueprint-foot,
+  .blueprint-detail {
+    display: none;
+  }
+}

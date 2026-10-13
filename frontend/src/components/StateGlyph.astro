@@ -1,0 +1,26 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<svg
+  class:list={['state-glyph', className]}
+  viewBox="0 0 120 120"
+  fill="none"
+  aria-hidden="true"
+>
+  <path
+    d="M32 57V39C32 16 88 16 88 39V48M88 67V81C88 104 32 104 32 81V72"
+    stroke="currentColor"
+    stroke-width="9"
+  />
+  <path
+    d="M88 48V57H105V67H15V72H32"
+    stroke="currentColor"
+    stroke-width="1.5"
+    stroke-dasharray="3 4"
+  />
+  <circle cx="105" cy="57" r="4" fill="currentColor" />
+</svg>

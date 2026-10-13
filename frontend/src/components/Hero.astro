@@ -1,0 +1,55 @@
+---
+import HeroBlueprint from './home/HeroBlueprint.astro';
+import type { CommunityEvent } from '../content/data';
+import { eventDate, eventTime } from '../utils/date';
+interface Props {
+  announcement?: CommunityEvent;
+}
+const { announcement } = Astro.props;
+---
+
+<section class="campus-hero" aria-labelledby="hero-title">
+  <div class="campus-stage">
+    <div class="campus-heading">
+      <p class="campus-kicker">
+        HUAWEI STUDENT DEVELOPERS <span>/ İNÖNÜ</span>
+      </p>
+      <h1 id="hero-title">
+        <span class="campus-line">
+          <span>Merakla başlar.</span>
+        </span>
+        <span class="campus-line campus-line-accent">
+          <span>Birlikte gelişir.</span>
+        </span>
+      </h1>
+      <p class="campus-description">
+        İnönü Üniversitesi’nde teknolojiye meraklı öğrencileri projeler,
+        zirveler ve sektör buluşmalarıyla bir araya getiriyoruz.
+      </p>
+      <div class="campus-actions">
+        <a class="pill dark campus-primary" href="/katil/">
+          Topluluğa katıl <span aria-hidden="true">↗</span>
+        </a>
+        <a class="campus-secondary text-link" href="#etkinlikler">
+          Etkinlikleri keşfet <span aria-hidden="true">↓</span>
+        </a>
+      </div>
+      {announcement && (
+        <a
+          class="campus-announcement"
+          href={`/etkinlikler/${announcement.slug}/`}
+        >
+          <span class="eyebrow">SIRADAKİ BULUŞMA</span>
+          <span>{announcement.title}</span>
+          <time datetime={announcement.date}>
+            {eventDate(announcement.date)} · {eventTime(announcement.date)}
+          </time>
+        </a>
+      )}
+    </div>
+    <HeroBlueprint />
+    <div class="campus-progress" aria-hidden="true">
+      <i></i>
+    </div>
+  </div>
+</section>

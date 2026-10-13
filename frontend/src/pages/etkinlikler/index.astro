@@ -1,0 +1,138 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageIntro from '../../components/PageIntro.astro';
+import EventCard from '../../components/EventCard.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import ArchiveSelect from '../../components/ArchiveSelect.astro';
+import StateGlyph from '../../components/StateGlyph.astro';
+import { events, archivedPosters } from '../../content/data';
+import { sortEvents, eventDate, eventTime } from '../../utils/date';
+const orderedEvents = sortEvents(events);
+const posters = sortEvents(archivedPosters);
+---
+
+<Base title="Etkinlikler">
+  <div class="interior archive-page">
+    <PageIntro
+      eyebrow="HSD İNÖNÜ / ETKİNLİKLER"
+      title="Birlikte yaşadık."
+      text="Zirveler, teknik geziler ve sektör sohbetleri. Birlikte biriktirdiğimiz deneyimler burada."
+    />
+    <section
+      class="wrap archive-content"
+      data-filter-root
+      aria-label="Etkinlik arşivi"
+    >
+      <div class="filter-toolbar">
+        <FilterBar
+          categories={[
+            ...new Set(events.map((event) => event.category)),
+            'Afiş arşivi',
+          ]}
+        />
+        <ArchiveSelect
+          id="event-period"
+          label="Dönem"
+          kind="period"
+          options={[
+            { value: 'all', label: 'Tüm etkinlikler' },
+            { value: 'upcoming', label: 'Yaklaşan' },
+            { value: 'past', label: 'Geçmiş' },
+          ]}
+        />
+      </div>
+      <p class="sr-only" aria-live="polite" data-filter-status></p>
+      <div class="archive-notice" data-upcoming-note hidden>
+        <StateGlyph />
+        <p>
+          Yeni buluşmalar yolda.{' '}
+          <span>Şimdilik geçmiş deneyimlerimizi keşfet.</span>
+        </p>
+      </div>
+      <div class="event-grid" id="event-results">
+        {orderedEvents.map((event) => (
+          <div
+            data-category={event.category}
+            data-date={event.date}
+            data-status={event.status}
+          >
+            <EventCard event={event} />
+            <p class="archive-summary">{event.description}</p>
+          </div>
+        ))}
+        {posters.map((poster) => (
+          <div data-category="Afiş arşivi" data-status="archived">
+            <a
+              class="event-card"
+              href={poster.image}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div class="card-image">
+                <img
+                  src={poster.image}
+                  width="800"
+                  height="1000"
+                  alt={poster.title}
+                  loading="lazy"
+                />
+                <span class="image-tag">Afiş arşivi</span>
+                <span class="image-arrow" aria-hidden="true">
+                  ↗
+                </span>
+              </div>
+              <div class="card-meta">
+                <span>
+                  {eventDate(poster.date)}
+                  {eventTime(poster.date) && ` · ${eventTime(poster.date)}`}
+                </span>
+                <span>{poster.location}</span>
+              </div>
+              <h3>{poster.title}</h3>
+              <span class="card-action">
+                Afişi aç <span aria-hidden="true">↗</span>
+              </span>
+            </a>
+            <p class="archive-summary">
+              Etkinliğin orijinal duyuru afişini incele.
+            </p>
+          </div>
+        ))}
+      </div>
+      <div class="archive-pagination">
+        <button
+          type="button"
+          class="filter-reset"
+          data-load-more
+          aria-controls="event-results"
+          hidden
+        >
+          Daha fazlasını göster <span aria-hidden="true">↓</span>
+        </button>
+      </div>
+      <div class="empty-state archive-empty" data-empty hidden>
+        <StateGlyph />
+        <div class="empty-copy">
+          <h2 data-empty-title>Bu seçimde bir buluşma yok.</h2>
+          <p data-empty-description>
+            Başka bir filtreyle keşfetmeye devam edebilirsin.
+          </p>
+          <div class="empty-actions">
+            <button class="filter-reset" data-filter-reset>
+              <span data-reset-label>Filtreleri temizle</span>{' '}
+              <span aria-hidden="true">↗</span>
+            </button>
+            <a
+              href="https://www.instagram.com/hsdinonu/"
+              class="text-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Instagram’dan takip et ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Base>

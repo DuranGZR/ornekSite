@@ -1,0 +1,259 @@
+---
+import Base from '../layouts/Base.astro';
+import CommunityPhoto from '../components/CommunityPhoto.astro';
+import CommunityFilm from '../components/CommunityFilm.astro';
+---
+
+<Base title="Topluluk">
+  <div class="interior community-page wrap">
+    <section class="story-opening">
+      <div>
+        <p class="eyebrow">HSD İNÖNÜ / TOPLULUK</p>
+        <h1>
+          Ortak noktamız:
+          <br />
+          <em>merak.</em>
+        </h1>
+        <p class="lead">
+          İnönü Üniversitesi’nin Huawei Student Developers topluluğuyuz.
+          Teknolojiye meraklı öğrencileri öğrenmek, üretmek ve paylaşmak için
+          bir araya getiriyoruz.
+        </p>
+      </div>
+      <figure class="opening-photo">
+        <CommunityPhoto
+          imageSlot="community"
+          photo="gathering"
+          alt="HSD İnönü buluşmasında konuşmacıyı dinleyen katılımcılar"
+        />
+      </figure>
+    </section>
+
+    <div class="community-purpose interior-section">
+      <div
+        class="purpose-tabs"
+        role="tablist"
+        aria-label="Topluluğun amacı"
+        hidden
+      >
+        <button
+          type="button"
+          id="mission-tab"
+          role="tab"
+          aria-controls="mission-panel"
+          aria-selected="true"
+        >
+          Misyonumuz
+        </button>
+        <button
+          type="button"
+          id="vision-tab"
+          role="tab"
+          aria-controls="vision-panel"
+          aria-selected="false"
+          tabindex="-1"
+        >
+          Vizyonumuz
+        </button>
+      </div>
+      <section
+        id="mission-panel"
+        class="purpose-block"
+        aria-labelledby="mission-title"
+      >
+        <p class="purpose-label">Misyonumuz</p>
+        <h2 id="mission-title">
+          Merakı <em>üretime dönüştürmek.</em>
+        </h2>
+        <p class="purpose-description">
+          Öğrencilerin birlikte öğrenebildiği, deneyebildiği ve bilgi
+          paylaşabildiği bir ortam oluşturmak. Teknik becerileri ekip
+          çalışmasıyla geliştirmek, farklı disiplinleri bir araya getirerek
+          fikirleri hayata geçirmek.
+        </p>
+      </section>
+      <section
+        id="vision-panel"
+        class="purpose-block"
+        aria-labelledby="vision-title"
+      >
+        <p class="purpose-label">Vizyonumuz</p>
+        <h2 id="vision-title">
+          Geleceği <em>birlikte geliştirmek.</em>
+        </h2>
+        <p class="purpose-description">
+          Teknolojiyi yalnızca kullanan değil, geliştiren ve paylaşan bir
+          öğrenci topluluğu olmak. İnönü Üniversitesi’nden doğan fikirlerin,
+          topluma değer katan çözümlere dönüşmesine katkı sağlamak.
+        </p>
+      </section>
+    </div>
+
+    <CommunityFilm />
+
+    <section
+      class="community-values interior-section"
+      aria-labelledby="values-title"
+    >
+      <h2 id="values-title">Bizi bir arada tutan.</h2>
+      <div class="values-grid">
+        <article>
+          <h3>Merak.</h3>
+          <p>Soru sorar, yeni fikirleri keşfederiz.</p>
+        </article>
+        <article>
+          <h3>Dayanışma.</h3>
+          <p>Birbirimizden öğrenir, birlikte gelişiriz.</p>
+        </article>
+        <article>
+          <h3>Paylaşım.</h3>
+          <p>Bilgiyi ve deneyimi birlikte çoğaltırız.</p>
+        </article>
+      </div>
+    </section>
+  </div>
+</Base>
+
+<script>
+  const purpose = document.querySelector<HTMLElement>('.community-purpose');
+  if (purpose) {
+    const bar = purpose.querySelector<HTMLElement>('.purpose-tabs')!;
+    const tabs = Array.from(
+      bar.querySelectorAll<HTMLButtonElement>('[role="tab"]'),
+    );
+    const panels = Array.from(
+      purpose.querySelectorAll<HTMLElement>('.purpose-block'),
+    );
+    const mobile = matchMedia('(max-width: 700px)');
+    let selected = 0;
+    function update() {
+      bar.hidden = !mobile.matches;
+      purpose!.classList.toggle('is-tabbed', mobile.matches);
+      tabs.forEach((tab, index) => {
+        tab.setAttribute('aria-selected', String(index === selected));
+        tab.tabIndex = index === selected ? 0 : -1;
+        const panel = panels[index];
+        panel.hidden = mobile.matches && index !== selected;
+        panel.setAttribute(
+          'aria-labelledby',
+          mobile.matches
+            ? tab.id
+            : index === 0
+              ? 'mission-title'
+              : 'vision-title',
+        );
+        if (mobile.matches) {
+          panel.setAttribute('role', 'tabpanel');
+          panel.tabIndex = 0;
+        } else {
+          panel.removeAttribute('role');
+          panel.removeAttribute('tabindex');
+        }
+      });
+    }
+    tabs.forEach((tab, index) =>
+      tab.addEventListener('click', () => {
+        selected = index;
+        update();
+      }),
+    );
+    bar.addEventListener('keydown', (event) => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key))
+        return;
+      event.preventDefault();
+      selected =
+        event.key === 'Home'
+          ? 0
+          : event.key === 'End'
+            ? tabs.length - 1
+            : (selected + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) %
+              tabs.length;
+      update();
+      tabs[selected].focus();
+    });
+    mobile.addEventListener('change', update);
+    update();
+  }
+</script>
+
+<style>
+  .community-purpose {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(40px, 6vw, 100px);
+    padding-top: 48px;
+    border-top: 1px solid var(--line);
+  }
+  .purpose-label {
+    margin: 0 0 24px;
+    color: var(--wine);
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .purpose-block h2 {
+    max-width: 100%;
+    margin: 0 0 28px;
+    letter-spacing: -0.045em;
+  }
+  .purpose-block h2 em {
+    display: block;
+  }
+  .purpose-description {
+    max-width: 52ch;
+    margin: 0;
+    color: var(--muted);
+    font-size: 18px;
+    line-height: 1.8;
+  }
+  .community-values {
+    padding-top: 48px;
+    border-top: 1px solid var(--line);
+  }
+  .community-values h2 {
+    margin: 0 0 40px;
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+  .values-grid h3 {
+    margin: 0 0 12px;
+    font-size: clamp(24px, 2.4vw, 34px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+  }
+  .values-grid p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  @media (max-width: 700px) {
+    .community-purpose {
+      grid-template-columns: 1fr;
+      padding-top: 32px;
+      gap: 40px;
+    }
+    .purpose-block + .purpose-block {
+      padding-top: 32px;
+      border-top: 1px solid var(--line);
+    }
+    .purpose-label {
+      margin-bottom: 18px;
+    }
+    .purpose-description {
+      font-size: 16px;
+    }
+    .community-values {
+      padding-top: 32px;
+    }
+    .community-values h2 {
+      margin-bottom: 28px;
+    }
+    .values-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+  }
+</style>

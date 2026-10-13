@@ -1,0 +1,67 @@
+---
+import type { CoreMember } from '../content/team';
+interface Props {
+  member: CoreMember;
+  prominent?: boolean;
+}
+const { member, prominent = false } = Astro.props;
+const initials = member.name
+  .split(' ')
+  .map((part) => part[0])
+  .slice(0, 2)
+  .join('');
+---
+
+<article
+  class:list={['core-member', { 'core-member-prominent': prominent }]}
+  data-member-name={member.name}
+  data-member-role={member.role}
+  data-member-photo={member.photo ?? ''}
+  data-member-initials={initials}
+>
+  <div class="core-portrait">
+    {member.photo ? (
+      <img
+        src={member.photo}
+        width="240"
+        height="240"
+        loading="lazy"
+        alt={member.name}
+      />
+    ) : (
+      <span aria-hidden="true">{initials}</span>
+    )}
+  </div>
+  <h3>{member.name}</h3>
+  <p>{member.role}</p>
+  <button
+    type="button"
+    class="member-profile-trigger"
+    data-member-profile
+    aria-label={`${member.name}: profil kartını aç`}
+    aria-haspopup="dialog"
+    aria-controls="member-profile"
+  ></button>
+</article>
+
+<style>
+  .member-profile-trigger { display: none; }
+  @media (max-width: 700px) {
+    .core-member { position: relative; }
+    .member-profile-trigger {
+      display: block;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: inherit;
+      background: transparent;
+      cursor: pointer;
+    }
+    .member-profile-trigger:focus-visible {
+      outline: 2px solid var(--wine);
+      outline-offset: 4px;
+    }
+  }
+</style>
